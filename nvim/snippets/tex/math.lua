@@ -125,6 +125,20 @@ local M = {
     }),
     { condition = tex.in_mathzone }
   ),
+  s(
+    { trig = "lim", name = "lim(sup|inf)", dscr = "lim(sup|inf)", snippetType = "autosnippet" },
+    fmta(
+      [[ 
+    \lim<><><>
+    ]],
+      {
+        c(1, { t(""), t("sup"), t("inf") }),
+        c(2, { t(""), fmta([[_{<> \to <>}]], { i(1, "n"), i(2, "\\infty") }) }),
+        i(0),
+      }
+    ),
+    { condition = tex.in_math, show_condition = tex.in_math }
+  ),
 
   -------------------------------
   -- TRIGONOMETRIC
@@ -132,18 +146,173 @@ local M = {
 
   -- SINE
   s(
-    { trig = "([^%\\])sq", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
-    fmta("<>\\sqrt{<>}", {
-      f(function(_, snip)
-        return snip.captures[1]
-      end),
-      d(1, get_visual),
+    { trig = "([^%a])sin", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    fmta("\\sin{<>} <>", {
+      i(1),
+      i(0),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  -- COSINE
+  s(
+    { trig = "([^%a])cos", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    fmta("\\cos{<>} <>", {
+      i(1),
+      i(0),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  -- TANGENT
+  s(
+    { trig = "([^%a])tan", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    fmta("\\tan{<>} <>", {
+      i(1),
+      i(0),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  -- COTANGENT
+  s(
+    { trig = "([^%a])cot", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    fmta("\\cot{<>} <>", {
+      i(1),
+      i(0),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  -- SECANT
+  s(
+    { trig = "([^%a])sec", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    fmta("\\sec{<>} <>", {
+      i(1),
+      i(0),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  -- COSECANT
+  s(
+    { trig = "([^%a])csc", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    fmta("\\csc{<>} <>", {
+      i(1),
+      i(0),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  -- ARC-SINE
+  s(
+    { trig = "([^%a])asin", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    fmta("<> <>", {
+      c(1, { fmta([[\sin^{-1}{<>}]], i(1)), fmta([[\asin{<>}]], i(1)) }),
+      i(0),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  -- ARC-COSINE
+  s(
+    { trig = "([^%a])acos", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    fmta("<> <>", {
+      c(1, { fmta([[\cos^{-1}{<>}]], i(1)), fmta([[\acos{<>}]], i(1)) }),
+      i(0),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  -- ARC-TANGENT
+  s(
+    { trig = "([^%a])atan", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    fmta("<> <>", {
+      c(1, { fmta([[\tan^{-1}{<>}]], i(1)), fmta([[\atan{<>}]], i(1)) }),
+      i(0),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  -- ARC-COTANGENT
+  s(
+    { trig = "([^%a])acot", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    fmta("<> <>", {
+      c(1, { fmta([[\cot^{-1}{<>}]], i(1)), fmta([[\acot{<>}]], i(1)) }),
+      i(0),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  -- ARC-SECANT
+  s(
+    { trig = "([^%a])asec", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    fmta("<> <>", {
+      c(1, { fmta([[\sec^{-1}{<>}]], i(1)), fmta([[\asec{<>}]], i(1)) }),
+      i(0),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  -- ARC-COSECANT
+  s(
+    { trig = "([^%a])acsc", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    fmta("<> <>", {
+      c(1, { fmta([[\csc^{-1}{<>}]], i(1)), fmta([[\acsc{<>}]], i(1)) }),
+      i(0),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  -------------------------------
+  -- HYPERBOLIC
+  -------------------------------
+
+  -- HYPER-SINE
+  s(
+    { trig = "([^%a])sinh", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    fmta("\\sinh{<>} <>", {
+      i(1),
+      i(0),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  -- HYPER-COSINE
+  s(
+    { trig = "([^%a])cosh", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    fmta("\\cosh{<>} <>", {
+      i(1),
+      i(0),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  -- HYPER-TANGENT
+  s(
+    { trig = "([^%a])tanh", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    fmta("\\tanh{<>} <>", {
+      i(1),
+      i(0),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  -- HYPER-COTANGENT
+  s(
+    { trig = "([^%a])coth", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    fmta("\\coth{<>} <>", {
+      i(1),
+      i(0),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  -- HYPER-SECANT
+  s(
+    { trig = "([^%a])sech", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    fmta("\\sech{<>} <>", {
+      i(1),
+      i(0),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  -- HYPER-COSECANT
+  s(
+    { trig = "([^%a])csch", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    fmta("\\csch{<>} <>", {
+      i(1),
+      i(0),
     }),
     { condition = tex.in_mathzone }
   ),
 
   -------------------------------
-  -- SUBSCRIPTS AND SUPERSCRIPTS
+  -- SUBSCRIPT AND SUPERSCRIPT
   -------------------------------
 
   -- SUPERSCRIPT
@@ -359,11 +528,12 @@ local M = {
   -- VECTOR
   s(
     { trig = "([^%a])vv", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
-    fmta("<>\\vb{<>}", {
-      f(function(_, snip)
-        return snip.captures[1]
-      end),
-      d(1, get_visual),
+    fmta("<><>", {
+      c(1, {
+        fmta([[\vb{<>}]], { i(1) }),
+        fmta([[\vec{<>}]], { i(1) }),
+      }),
+      i(0),
     }),
     { condition = tex.in_mathzone }
   ),
@@ -463,75 +633,95 @@ local M = {
   s({ trig = "df", priority = 2000, snippetType = "autosnippet" }, {
     t("\\dd "),
   }, { condition = tex.in_mathzone }),
-  -- TOTAL DERIVATIVE with denominator only
+  -- TOTAL DERIVATIVE (only denominator)
   s(
     { trig = "([^%a])dV", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
-    fmta("<>\\dv{<>}", {
+    fmta("<>\\dv{<>}<>", {
       f(function(_, snip)
         return snip.captures[1]
       end),
       d(1, get_visual),
+      i(0),
     }),
     { condition = tex.in_mathzone }
   ),
-  -- TOTAL DERIVATIVE with numerator and denominator
+  -- TOTAL DERIVATIVE (numerator and denominator)
   s(
     { trig = "([^%a])dvv", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
-    fmta("<>\\dv{<>}{<>}", {
-      f(function(_, snip)
-        return snip.captures[1]
-      end),
-      i(1),
-      i(2),
-    }),
-    { condition = tex.in_mathzone }
-  ),
-  -- TOTAL DERIVATIVE with numerator, denominator, and higher-order argument
-  s(
-    { trig = "([^%a])ddv", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
-    fmta("<>\\dv[<>]{<>}{<>}", {
-      f(function(_, snip)
-        return snip.captures[1]
-      end),
-      i(1),
-      i(2),
-      i(3),
-    }),
-    { condition = tex.in_mathzone }
-  ),
-  -- PARTIAL DERIVATIVE with denominator only
-  s(
-    { trig = "([^%a])pV", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
-    fmta("<>\\pdv{<>}", {
+    fmta("<>\\dv{<>}{<>}<>", {
       f(function(_, snip)
         return snip.captures[1]
       end),
       d(1, get_visual),
-    }),
-    { condition = tex.in_mathzone }
-  ),
-  -- PARTIAL DERIVATIVE with numerator and denominator
-  s(
-    { trig = "([^%a])pvv", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
-    fmta("<>\\pdv{<>}{<>}", {
-      f(function(_, snip)
-        return snip.captures[1]
-      end),
-      i(1),
       i(2),
+      i(0),
     }),
     { condition = tex.in_mathzone }
   ),
-  -- PARTIAL DERIVATIVE with numerator, denominator, and higher-order argument
+  -- TOTAL DERIVATIVE (numerator and denominator, higher order)
   s(
-    { trig = "([^%a])ppv", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
-    fmta("<>\\pdv[<>]{<>}{<>}", {
+    { trig = "([^%a])ddv", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    fmta("<>\\dv[<>]{<>}{<>}<>", {
       f(function(_, snip)
         return snip.captures[1]
       end),
-      i(1),
+      i(1, "2"),
+      d(2, get_visual),
+      i(3),
+      i(0),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  -- PARTIAL DERIVATIVE (only denominator)
+  s(
+    { trig = "([^%a])pD", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    fmta("<>\\pdv{<>}<>", {
+      f(function(_, snip)
+        return snip.captures[1]
+      end),
+      d(1, get_visual),
+      i(0),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  -- PARTIAL DERIVATIVE (numerator and denominator)
+  s(
+    { trig = "([^%a])pdd", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    fmta("<>\\pdv{<>}{<>}<>", {
+      f(function(_, snip)
+        return snip.captures[1]
+      end),
+      d(1, get_visual),
+      i(2),
+      i(0),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  -- PARTIAL DERIVATIVE (numerator and denominator, higher order)
+  s(
+    { trig = "([^%a])ppd", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    fmta("<>\\pdv[<>]{<>}{<>}<>", {
+      f(function(_, snip)
+        return snip.captures[1]
+      end),
+      i(1, "2"),
+      d(2, get_visual),
+      i(3),
+      i(0),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  -- PARTIAL DERIVATIVE (numerator and denominator, higher order mixed)
+  s(
+    { trig = "([^%a])pdm", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    fmta("<>\\pdv{<>}{<>}{<>}<>", {
+      f(function(_, snip)
+        return snip.captures[1]
+      end),
+      d(1, get_visual),
       i(2),
       i(3),
+      i(0),
     }),
     { condition = tex.in_mathzone }
   ),
@@ -541,6 +731,18 @@ local M = {
   --------------------------------------
 
   -- INTEGRAL with upper and lower limit
+  s(
+    { trig = "([^%a])int", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    fmta("\\int<><>", {
+      c(1, {
+        fmta([[{<>}]], { i(1) }),
+        fmta([[_{<>}^{<>}{<>}]], { i(1), i(2), i(3) }),
+        fmta([[_{<>}^{<>}{<>}]], { i(1, "-\\infty"), i(2, "\\infty"), i(3) }),
+      }),
+      i(0),
+    }),
+    { condition = tex.in_mathzone }
+  ),
   s(
     { trig = "([^%a])intt", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
     fmta("<>\\int_{<>}^{<>} ", {

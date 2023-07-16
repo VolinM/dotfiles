@@ -94,9 +94,9 @@ local M = {
     { trig = "nn", snippetType = "autosnippet" },
     fmta(
       [[
-        \begin{equation*}
+        \begin{equation}
             <>
-        \end{equation*}
+        \end{equation}
       ]],
       {
         i(1),
@@ -109,11 +109,11 @@ local M = {
     { trig = "ss", snippetType = "autosnippet" },
     fmta(
       [[
-        \begin{equation*}
+        \begin{equation}
             \begin{split}
                 <>
             \end{split}
-        \end{equation*}
+        \end{equation}
       ]],
       {
         d(1, get_visual),
@@ -126,9 +126,9 @@ local M = {
     { trig = "all", snippetType = "autosnippet" },
     fmta(
       [[
-        \begin{align*}
+        \begin{align}
             <>
-        \end{align*}
+        \end{align}
       ]],
       {
         i(1),

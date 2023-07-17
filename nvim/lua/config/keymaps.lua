@@ -13,3 +13,14 @@ vim.keymap.set({ "i", "s" }, "<A-e>", function()
     require("luasnip").change_choice(1)
   end
 end, { silent = true })
+
+vim.keymap.set(
+  "i",
+  "<C-f>",
+  [[<Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR> ]]
+)
+vim.keymap.set(
+  "n",
+  "<C-f>",
+  [[: silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>]]
+)

@@ -14,5 +14,8 @@ acmd("FileType", {
   callback = function()
     vim.opt_local.spell = true
     vim.keymap.set("i", "<C-l>", "<Esc>[s1z=`]a")
+    vim.o.wrap = true
+    vim.o.linebreak = true
+    vim.o.list = false
   end,
 })

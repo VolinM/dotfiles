@@ -130,5 +130,5 @@ PATH=/usr/local/texlive/2023/bin/x86_64-linux:$PATH; export PATH MANPATH=/usr/lo
 alias config='/usr/bin/git --git-dir=/home/volinm/.cfg/ --work-tree=/home/volinm'
 alias config='/usr/bin/git --git-dir=/home/volinm/.cfg/ --work-tree=/home/volinm'
 
-
+git -C ~/.config/ pull
 clear

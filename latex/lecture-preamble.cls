@@ -1,9 +1,9 @@
-\LoadClass[a4paper,twoside]{article}
-
+\LoadClass{article}
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{lecture-preamble}[custom format for class notes]
 
 % Some basic packages
+\usepackage[a4paper, hmarginratio=1:1,twoside, total={6in, 9in}]{geometry}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{textcomp}

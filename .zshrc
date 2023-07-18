@@ -131,7 +131,4 @@ alias config='/usr/bin/git --git-dir=/home/volinm/.cfg/ --work-tree=/home/volinm
 alias config='/usr/bin/git --git-dir=/home/volinm/.cfg/ --work-tree=/home/volinm'
 
 
-pkill sxhkd
-sxhkd -m 1&
-
 clear

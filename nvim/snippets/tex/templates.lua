@@ -26,90 +26,41 @@ local line_begin = require("luasnip.extras.expand_conditions").line_begin
 
 local M = {
 
-  -- GENERIC ENVIRONMENT
+  -- LECTURES MAIN
   s(
-    { trig = "assignament" },
+    { trig = "lec-main" },
     fmta(
       [[
-      \documentclass{article}
-      \usepackage[utf8]{inputenc}
-      % Asthetics
-      \usepackage{geometry}
-      \usepackage{fancyhdr}
-      \usepackage{graphicx}
-      \usepackage{titling}
-      % Math
-      \usepackage{amsmath}
-      \usepackage{amssymb}
-      \usepackage{physics}
-      \usepackage{esint}
-      % Other
-      \usepackage{lipsum}
+      \makeatletter
+      \def\input@path{{~/.config/latex/}}
+      \documentclass{lecture-preamble}
 
-      % DOCUMENT SETUP
-      \geometry{
-      a4paper,
-      total={170mm,257mm},
-      left=20mm,
-      top=20mm,
-      }
-
-      % ENVIORMENT VARIABLES
       \title{<>}
-      \author{\vspace{-15ex}}
-      \date{\vspace{-8ex}}
-      \def\student{<>}
-      \def\tidate{<>}
-      \def\profesor{<>}
-      \def\course{<>}
-
-      % PAGESTYLE
-      \pagestyle{fancy}
-      \lhead{\tidate}
-      \rhead{\student}
-      \lfoot{\course}
-      \rfoot{Prof. \profesor}
-
-      % DOCUMENT
       \begin{document}
       \maketitle
+      \tableofcontents
+      \newpage
+      % -- begin lectures -- %
 
-      \thispagestyle{fancy}
-      \noindent\begin{tabular}{@{}ll}
-      Alumno:   & \student  \\
-      Profesor: & \profesor \\
-      Curso:    & \course   \\
-      \end{tabular}
-      \vspace{1em}
+      \input{<>}
 
-      %% --- begin here ---- %%
-      \section*{Section}
-      <>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      % -- end lectures -- %
       \end{document}
       ]],
-      {
-        i(1, "Title"),
-        i(2, "Mark Volin"),
-        i(3, "\\today"),
-        i(4),
-        i(5),
-        i(0),
-      }
+      { i(1), i(2) }
+    ),
+    { condition = line_begin }
+  ),
+  -- LECTURES
+  s(
+    { trig = "lec" },
+    fmta(
+      [[
+
+      \lecture{<>}{<>}{<>}
+
+      ]],
+      { i(1, "lec number"), i(2, "date"), i(3, "title") }
     ),
     { condition = line_begin }
   ),

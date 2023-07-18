@@ -36,14 +36,15 @@
 \RequirePackage{cancel}
 % Bold math
 \RequirePackage{bm}
+% si unitx
+\RequirePackage{siunitx}
 % Physics package
 \RequirePackage{physics}
+\AtBeginDocument{\RenewCommandCopy\qty\SI}
 % Fancy Integrals
 \RequirePackage{esint}
 % Easily typeset systems of equations (French package)
 \RequirePackage{systeme}
-% si unitx
-\RequirePackage{siunitx}
 
 % Set shortcuts
 \newcommand\N{\ensuremath{\mathbb{N}}}
@@ -66,7 +67,7 @@
 
 % horizontal rule
 \newcommand\hr{
-    \noindent\rule[0.5ex]{\linewidth}{0.5pt}
+	\noindent\rule[0.5ex]{\linewidth}{0.5pt}
 }
 
 % hide parts
@@ -127,7 +128,7 @@
 % http://tex.stackexchange.com/questions/22119/how-can-i-change-the-spacing-before-theorems-with-amsthm
 \makeatletter
 \def\thm@space@setup{%
-  \thm@preskip=\parskip \thm@postskip=0pt
+	\thm@preskip=\parskip \thm@postskip=0pt
 }
 
 
@@ -144,12 +145,12 @@
 %   Oefening 5.2
 %   Oefening 5.3
 \newcommand{\oefening}[1]{%
-    \def\@oefening{#1}%
-    \subsection*{Oefening #1}
+	\def\@oefening{#1}%
+	\subsection*{Oefening #1}
 }
 
 \newcommand{\suboefening}[1]{%
-    \subsubsection*{Oefening \@oefening.#1}
+	\subsubsection*{Oefening \@oefening.#1}
 }
 
 
@@ -168,18 +169,18 @@
 \RequirePackage{xifthen}
 \def\testdateparts#1{\dateparts#1\relax}
 \def\dateparts#1 #2 #3 #4 #5\relax{
-    \marginpar{\small\textsf{\mbox{#1 #2 #3 #5}}}
+	\marginpar{\small\textsf{\mbox{#1 #2 #3 #5}}}
 }
 
 \def\@lecture{}%
 \newcommand{\lecture}[3]{
-    \ifthenelse{\isempty{#3}}{%
-        \def\@lecture{Lecture #1}%
-    }{%
-        \def\@lecture{Lecture #1: #3}%
-    }%
-    \subsection*{\@lecture}
-    \marginpar{\small\textsf{\mbox{#2}}}
+	\ifthenelse{\isempty{#3}}{%
+		\def\@lecture{Lecture #1}%
+	}{%
+		\def\@lecture{Lecture #1: #3}%
+	}%
+	\subsection*{\@lecture}
+	\marginpar{\small\textsf{\mbox{#2}}}
 }
 
 
@@ -220,23 +221,23 @@
 %     no sea takimata sanctus est Lorem ipsum dolor sit amet.
 % \end{verbetering}
 \newenvironment{verbetering}{\begin{tcolorbox}[
-    arc=0mm,
-    colback=white,
-    colframe=green!60!black,
-    title=Opmerking,
-    fonttitle=\sffamily,
-    breakable
-]}{\end{tcolorbox}}
+			arc=0mm,
+			colback=white,
+			colframe=green!60!black,
+			title=Opmerking,
+			fonttitle=\sffamily,
+			breakable
+		]}{\end{tcolorbox}}
 
 % Noot is note in Dutch. Same as 'verbetering' but color of box is different
 \newenvironment{noot}[1]{\begin{tcolorbox}[
-    arc=0mm,
-    colback=white,
-    colframe=white!60!black,
-    title=#1,
-    fonttitle=\sffamily,
-    breakable
-]}{\end{tcolorbox}}
+			arc=0mm,
+			colback=white,
+			colframe=white!60!black,
+			title=#1,
+			fonttitle=\sffamily,
+			breakable
+		]}{\end{tcolorbox}}
 
 
 
@@ -247,13 +248,18 @@
 \RequirePackage{pdfpages}
 \RequirePackage{transparent}
 \newcommand{\incfig}[1]{%
-    \def\svgwidth{\columnwidth}
-    \import{./figures/}{#1.pdf_tex}
+	\def\svgwidth{\columnwidth}
+	\import{./figures/}{#1.pdf_tex}
 }
 
 % Fix some stuff
 % %http://tex.stackexchange.com/questions/76273/multiple-pdfs-with-page-group-included-in-a-single-page-warning
 \pdfsuppresswarningpagegroup=1
+\ExplSyntaxOn
+\msg_redirect_name:nnn { siunitx } { physics-pkg } { none }
+\ExplSyntaxOff
+
 % My name
 \author{Mark dbkbk}
 \date{}
+

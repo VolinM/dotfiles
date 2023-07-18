@@ -22,7 +22,7 @@ set recolor                     true
 set recolor-keephue             true      # keep original color
 set render-loading              true
 set default-fg                "#CDD6F4"
-set default-bg 			          "#1E1E2E"
+set default-bg 			          "#212133"
 
 set completion-bg		          "#313244"
 set completion-fg		          "#CDD6F4"

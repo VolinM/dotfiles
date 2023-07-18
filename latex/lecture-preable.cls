@@ -1,7 +1,7 @@
 \LoadClass[a4paper,twoside]{article}
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{lecture-note}[custom format for class notes]
+\ProvidesClass{lecture-preamble}[custom format for class notes]
 
 % Some basic packages
 \RequirePackage[utf8]{inputenc}

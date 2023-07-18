@@ -30,3 +30,5 @@ vim.keymap.set(
 --
 map("i", "<S-Right>", "<Esc>$a")
 map("i", "<S-Left>", "<Esc>^i")
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")

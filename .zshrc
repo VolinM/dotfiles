@@ -130,7 +130,9 @@ PATH=/usr/local/texlive/2023/bin/x86_64-linux:$PATH; export PATH MANPATH=/usr/lo
 alias config='/usr/bin/git --git-dir=/home/volinm/.cfg/ --work-tree=/home/volinm'
 alias config='/usr/bin/git --git-dir=/home/volinm/.cfg/ --work-tree=/home/volinm'
 
-alias graham='ssh -Y mvolin@graham.computecanada.ca'
+alias venv='source ~/.venv/bin/activate'
 
+alias graham='ssh -Y mvolin@graham.computecanada.ca'
+alias pico='cd ~/PICOcode/PICOcode/UserCode/mvolin/'
 git -C ~/.config/ pull
 clear

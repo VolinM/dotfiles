@@ -1,3 +1,5 @@
+local next_char = vim.fn.getline(vim.fn.line(".")):sub(vim.fn.col("."), vim.fn.col("."))
+
 local M = {
   "L3MON4D3/LuaSnip",
   opts = {
@@ -12,12 +14,31 @@ local M = {
     {
       "<tab>",
       function()
-        return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
+        next_char = vim.fn.getline(vim.fn.line(".")):sub(vim.fn.col("."), vim.fn.col("."))
+        if next_char == ")" then
+          return "<Right>"
+        else
+          return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
+        end
       end,
-      expr = true, silent = true, mode = "i",
+      expr = true,
+      silent = true,
+      mode = "i",
     },
-    { "<tab>", function() require("luasnip").jump(1) end, mode = "s" },
-    { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
+    {
+      "<tab>",
+      function()
+        require("luasnip").jump(1)
+      end,
+      mode = "s",
+    },
+    {
+      "<s-tab>",
+      function()
+        require("luasnip").jump(-1)
+      end,
+      mode = { "i", "s" },
+    },
   },
 }
 

@@ -35,4 +35,5 @@ map("i", "<S-Left>", "<Esc>^i")
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 
+map({ "n", "v" }, "<Del>", '"_<Del>')
 map("n", "<C-q>", "<cmd>qa<cr>", { desc = "Quit all" })

@@ -27,8 +27,12 @@ vim.keymap.set(
 --   "<C-f>",
 --   [[: silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>]]
 --)
---
+
+-- sprint to begining or end in insert mode
 map("i", "<S-Right>", "<Esc>$a")
 map("i", "<S-Left>", "<Esc>^i")
+-- keep cursor centered while jumping
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
+
+map("n", "<C-q>", "<cmd>qa<cr>", { desc = "Quit all" })

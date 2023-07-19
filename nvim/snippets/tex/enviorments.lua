@@ -40,14 +40,18 @@ local M = {
     { trig = "new", snippetType = "autosnippet" },
     fmta(
       [[
+
         \begin{<>}
             <>
         \end{<>}
+
+        <>
       ]],
       {
         i(1),
         d(2, get_visual),
         rep(1),
+        i(0),
       }
     ),
     { condition = line_begin }
@@ -57,15 +61,19 @@ local M = {
     { trig = "n2", snippetType = "autosnippet" },
     fmta(
       [[
+
         \begin{<>}{<>}
             <>
         \end{<>}
+        
+        <>
       ]],
       {
         i(1),
         i(2),
         d(3, get_visual),
         rep(1),
+        i(0),
       }
     ),
     { condition = line_begin }
@@ -75,9 +83,12 @@ local M = {
     { trig = "n3", snippetType = "autosnippet" },
     fmta(
       [[
+
         \begin{<>}{<>}{<>}
             <>
         \end{<>}
+
+        <>
       ]],
       {
         i(1),
@@ -85,6 +96,7 @@ local M = {
         i(3),
         d(4, get_visual),
         rep(1),
+        i(0),
       }
     ),
     { condition = line_begin }
@@ -94,12 +106,30 @@ local M = {
     { trig = "nn", snippetType = "autosnippet" },
     fmta(
       [[
+      <>
+
+      <>
+      ]],
+      {
+        c(1, {
+          fmta(
+            [[
+        \begin{equation*}
+            <>
+        \end{equation*}
+        ]],
+            { i(1) }
+          ),
+          fmta(
+            [[
         \begin{equation}
             <>
         \end{equation}
-      ]],
-      {
-        i(1),
+        ]],
+            { i(1) }
+          ),
+        }),
+        i(0),
       }
     ),
     { condition = line_begin }
@@ -109,14 +139,30 @@ local M = {
     { trig = "ss", snippetType = "autosnippet" },
     fmta(
       [[
-        \begin{equation}
-            \begin{split}
-                <>
-            \end{split}
-        \end{equation}
+      <>
+
+      <>
       ]],
       {
-        d(1, get_visual),
+        c(1, {
+          fmta(
+            [[
+        \begin{gather*}
+            <>
+        \end{gather*}
+        ]],
+            { i(1) }
+          ),
+          fmta(
+            [[
+        \begin{gather}
+            <>
+        \end{gather}
+        ]],
+            { i(1) }
+          ),
+        }),
+        i(0),
       }
     ),
     { condition = line_begin }
@@ -126,12 +172,30 @@ local M = {
     { trig = "all", snippetType = "autosnippet" },
     fmta(
       [[
+      <>
+
+      <>
+      ]],
+      {
+        c(1, {
+          fmta(
+            [[
+        \begin{align*}
+            <>
+        \end{align*}
+        ]],
+            { i(1) }
+          ),
+          fmta(
+            [[
         \begin{align}
             <>
         \end{align}
-      ]],
-      {
-        i(1),
+        ]],
+            { i(1) }
+          ),
+        }),
+        i(0),
       }
     ),
     { condition = line_begin }
@@ -141,11 +205,13 @@ local M = {
     { trig = "itt", snippetType = "autosnippet" },
     fmta(
       [[
+
         \begin{itemize}
 
             \item <>
 
         \end{itemize}
+        
       ]],
       {
         i(0),
@@ -158,11 +224,13 @@ local M = {
     { trig = "enn", snippetType = "autosnippet" },
     fmta(
       [[
+
         \begin{enumerate}
 
             \item <>
 
         \end{enumerate}
+      
       ]],
       {
         i(0),
@@ -181,7 +249,7 @@ local M = {
   ),
   -- INLINE MATH ON NEW LINE
   s(
-    { trig = "^mm", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+    { trig = "_mm", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
     fmta("$<>$", {
       i(1),
     })
@@ -191,12 +259,14 @@ local M = {
     { trig = "fig" },
     fmta(
       [[
+
         \begin{figure}[htb!]
           \centering
           \includegraphics[width=<>\linewidth]{<>}
           \caption{<>}
           \label{fig:<>}
         \end{figure}
+        
         <>
         ]],
       {
@@ -207,6 +277,16 @@ local M = {
         i(0),
       }
     ),
+    { condition = line_begin }
+  ),
+  s(
+    { trig = "°", regTrig = true, snippetType = "autosnippet" },
+    fmta("\\item <>", { i(0) }),
+    { condition = line_begin }
+  ),
+  s(
+    { trig = "lbb", regTrig = true, snippetType = "autosnippet" },
+    fmta("\\label{<>:<>}", { i(1), i(2) }),
     { condition = line_begin }
   ),
 }

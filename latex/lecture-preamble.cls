@@ -3,7 +3,7 @@
 \ProvidesClass{lecture-preamble}[custom format for class notes]
 
 % Some basic packages
-\usepackage[a4paper, hmarginratio=1:1,twoside, total={6in, 9in}]{geometry}
+\usepackage[a4paper, hmarginratio=1:1,twoside, total={5.0in, 9in}]{geometry}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{textcomp}
@@ -260,6 +260,6 @@
 \ExplSyntaxOff
 
 % My name
-\author{Mark dbkbk}
+\author{Mark Volin}
 \date{}
-
+\hfuzz=5.002pt

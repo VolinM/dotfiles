@@ -118,6 +118,7 @@ alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 
+
 alias lg='lazygit'
 
 alias docs='cd ~/Documents/'

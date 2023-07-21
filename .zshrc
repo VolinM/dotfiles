@@ -107,6 +107,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+killall sxhkd
+sxhkd > /dev/null &
+
+clear
 
 alias zshrc='nvim ~/.zshrc'
 alias src='source ~/.zshrc'
@@ -136,4 +140,3 @@ alias venv='source ~/.venv/bin/activate'
 alias graham='ssh -Y mvolin@graham.computecanada.ca'
 alias pico='cd ~/PICOcode/PICOcode/UserCode/mvolin/'
 git -C ~/.config/ pull
-clear

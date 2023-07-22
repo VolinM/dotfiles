@@ -4,7 +4,7 @@ def beautify(string):
 def unbeautify(string):
     return string.replace(' ', '-').lower()
 
-MAX_LEN = 40
+MAX_LEN = 50
 def generate_short_title(title):
     short_title = title or 'Untitled'
     if len(title) >= MAX_LEN:

@@ -7,6 +7,7 @@ import locale
 import re
 import subprocess
 
+EDITOR = os.environ.get('EDITOR', 'vim')
 
 from config import get_week, DATE_FORMAT, CURRENT_COURSE_ROOT
 
@@ -43,10 +44,11 @@ class Lecture():
         self.course = course
 
     def edit(self):
-        subprocess.Popen([
-            "x-terminal-emulator",
-            "-e", "zsh", "-i", "-c",
-            f"\\vim --servername kulak --remote-silent {str(self.file_path)}"
+        subprocess.run([
+            "gnome-terminal",
+            "--",
+            "zsh", "-i", "-c",
+            f"\\nvim {str(self.file_path)}"
         ])
 
     def __str__(self):

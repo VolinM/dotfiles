@@ -123,7 +123,7 @@ alias ls='exa --icons'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
-
+alias vimrc='cd ~/.config/nvim/'
 
 alias lg='lazygit'
 
@@ -132,7 +132,6 @@ alias conf='cd ~/.config/'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 PATH=/usr/local/texlive/2023/bin/x86_64-linux:$PATH; export PATH MANPATH=/usr/local/texlive/2023/texmf-dist/doc/man:$MANPATH; export MANPATH INFOPATH=/usr/local/texlive/2023/texmf-dist/doc/info:$INFOPATH; export INFOPATH
 alias config='/usr/bin/git --git-dir=/home/volinm/.cfg/ --work-tree=/home/volinm'
 alias config='/usr/bin/git --git-dir=/home/volinm/.cfg/ --work-tree=/home/volinm'

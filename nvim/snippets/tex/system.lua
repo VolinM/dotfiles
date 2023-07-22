@@ -121,6 +121,9 @@ local M = {
       d(1, get_visual),
     })
   ),
+  s({ trig = "", snippetType = "autosnippet" }, fmta([[\textbf{<>} <>]], { d(1, get_visual), i(0) })),
+  s({ trig = "underl", snippetType = "autosnippet" }, fmta([[\underline{<>} <>]], { d(1, get_visual), i(0) })),
+  s({ trig = "textit", snippetType = "autosnippet" }, fmta([[\textit{<>} <>]], { d(1, get_visual), i(0) })),
 }
 
 return M

@@ -27,6 +27,12 @@ end
 --
 -- Return snippet tables
 return {
+  s({ trig = "  ", snippetType = "autosnippet", wordTrig = false }, {
+    t("\\alpha"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "", snippetType = "autosnippet", wordTrig = false }, {
+    t("\\alpha"),
+  }, { condition = tex.in_mathzone }),
   s({ trig = "¿a", snippetType = "autosnippet", wordTrig = false }, {
     t("\\alpha"),
   }, { condition = tex.in_mathzone }),

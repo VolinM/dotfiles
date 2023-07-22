@@ -43,3 +43,5 @@ nvim/lazy-lock.json
 *.log
 nvim/lazy-lock.json
 spicetify
+sxhkd
+sxhkd

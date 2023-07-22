@@ -107,8 +107,13 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-killall sxhkd
-sxhkd > /dev/null &
+
+launch_python_program() {
+    python3 ~/.config/scripts/latex/rofi-lectures.py
+}
+
+zle -N launch_python_program
+bindkey '^[l' launch_python_program
 
 clear
 
@@ -140,3 +145,5 @@ alias venv='source ~/.venv/bin/activate'
 alias graham='ssh -Y mvolin@graham.computecanada.ca'
 alias pico='cd ~/PICOcode/PICOcode/UserCode/mvolin/'
 git -C ~/.config/ pull
+
+export PATH=$PATH:/home/volinm/.spicetify

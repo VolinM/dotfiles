@@ -1,9 +1,15 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
+# OK to perform console I/O before this point.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+# From this point on, until zsh is fully initialized, console input won't work and
+# console output may appear uncolored.
+
+# ...
+
+# ...
+# From this point on, until zsh is fully initialized, console input won't work and
+# console output may appear uncolored.
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -108,15 +114,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-launch_python_program() {
-    python3 ~/.config/scripts/latex/rofi-lectures.py
-}
-
-zle -N launch_python_program
-bindkey '^[l' launch_python_program
-
-clear
-
 alias zshrc='nvim ~/.zshrc'
 alias src='source ~/.zshrc'
 
@@ -144,6 +141,9 @@ alias venv='source ~/.venv/bin/activate'
 
 alias graham='ssh -Y mvolin@graham.computecanada.ca'
 alias pico='cd ~/PICOcode/PICOcode/UserCode/mvolin/'
+
+clear
+
 git -C ~/.config/ pull
 
 export PATH=$PATH:/home/volinm/.spicetify

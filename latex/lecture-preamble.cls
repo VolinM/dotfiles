@@ -23,8 +23,9 @@
 \RequirePackage{emptypage}
 \RequirePackage{subcaption}
 \RequirePackage{multicol}
-\RequirePackage[divpsnames]{xcolor}
+\RequirePackage[divpsnames,x11names]{xcolor}
 
+\RequirePackage[overload]{empheq}
 % Other font I sometimes use.
 % \RequirePackage{cmbright}
 
@@ -63,6 +64,9 @@
 % Add \contra symbol to denote contradiction
 \RequirePackage{stmaryrd} % for \lightning
 \newcommand\contra{\scalebox{1.5}{$\lightning$}}
+
+\newcommand*{\widebox}[2][1em]{\fbox{\vspace*{10in}\hspace{#1}$\displaystyle #2$\hspace{#1}}}
+\newcommand{\eqname}[1]{\tag*{#1}}
 
 % Command for short corrections
 % Usage: 1+1=\correct{3}{2}
@@ -247,8 +251,6 @@
 		]}{\end{tcolorbox}}
 
 
-
-
 % Figure support as explained in my blog post.
 \RequirePackage{import}
 \RequirePackage{xifthen}
@@ -258,6 +260,8 @@
 	\def\svgwidth{\columnwidth}
 	\import{./figures/}{#1.pdf_tex}
 }
+
+
 
 % Fix some stuff
 % %http://tex.stackexchange.com/questions/76273/multiple-pdfs-with-page-group-included-in-a-single-page-warning

@@ -2,6 +2,7 @@ local ls = require("luasnip")
 -- some shorthands...
 local s = ls.snippet
 local i = ls.insert_node
+local t = ls.text_node
 local f = ls.function_node
 local c = ls.choice_node
 local d = ls.dynamic_node
@@ -116,6 +117,14 @@ local M = {
         ]],
             { i(1) }
           ),
+          fmta(
+            [[
+        \begin{equation}[box=\widebox]
+            <>
+        \end{equation}
+        ]],
+            { i(1) }
+          ),
         }),
         i(0),
       }
@@ -144,6 +153,14 @@ local M = {
           fmta(
             [[
         \begin{gather}
+            <>
+        \end{gather}
+        ]],
+            { i(1) }
+          ),
+          fmta(
+            [[
+        \begin{gather}[box=\widebox]
             <>
         \end{gather}
         ]],
@@ -182,12 +199,26 @@ local M = {
         ]],
             { i(1) }
           ),
+          fmta(
+            [[
+        \begin{align}[box=\widebox]
+            <>
+        \end{align}
+        ]],
+            { i(1) }
+          ),
         }),
         i(0),
       }
     ),
     { condition = line_begin * tex.in_text }
   ),
+  s({ trig = "ntt", snippetType = "autosnippet", wordTrig = true }, {
+    t("\\notag \\\\"),
+  }, { condition = -line_begin }),
+  s({ trig = "ntt", snippetType = "autosnippet", wordTrig = true }, {
+    fmta([[\tag{<>}\\]], { i(1) }),
+  }, { condition = -line_begin }),
   -- ITEMIZE
   s(
     { trig = "itt", snippetType = "autosnippet" },

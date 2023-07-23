@@ -135,7 +135,8 @@ alias lg='lazygit'
 alias docs='cd ~/Documents/'
 alias conf='cd ~/.config/'
 alias nvimrc='cd ~/.config/nvim/'
-alias scriptrc='cd ~/.config/scripts/'
+alias scriptsrc='cd ~/.config/scripts/'
+alias latexrc='cd ~/.config/latex/'
 
 alias venv='source ~/.venv/bin/activate'
 

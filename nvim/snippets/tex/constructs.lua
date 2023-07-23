@@ -72,7 +72,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = tex.in_math }
+    { condition = tex.in_mathzone }
   ),
   -- OVERLINE
   s(
@@ -88,7 +88,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = tex.in_math }
+    { condition = tex.in_mathzone }
   ),
   -- UNDERLINE
   s(
@@ -104,7 +104,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = tex.in_math }
+    { condition = tex.in_mathzone }
   ),
   -- TILDE
   s(
@@ -120,7 +120,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = tex.in_math }
+    { condition = tex.in_mathzone }
   ),
   -- DOT
   s(
@@ -136,7 +136,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = tex.in_math }
+    { condition = tex.in_mathzone }
   ),
   -- DOUBLE DOT
   s(
@@ -152,7 +152,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = tex.in_math }
+    { condition = tex.in_mathzone }
   ),
   -- CANCEL
   s(
@@ -168,7 +168,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = tex.in_math }
+    { condition = tex.in_mathzone }
   ),
   -- ABSOLUTE VALUE
   s(

@@ -33,7 +33,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = tex.in_math }
+    { condition = tex.in_mathzone}
   ),
   s(
     { trig = "»»", regTrig = true, snippetType = "autosnippet" },
@@ -46,7 +46,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = tex.in_math }
+    { condition = tex.in_mathzone}
   ),
   s(
     { trig = "«»", regTrig = true, snippetType = "autosnippet" },
@@ -60,7 +60,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = tex.in_math }
+    { condition = tex.in_mathzone}
   ),
 }
 

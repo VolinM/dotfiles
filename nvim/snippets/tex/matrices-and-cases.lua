@@ -115,7 +115,7 @@ local M = {
     ]],
       { d(1, generate_cases) }
     ),
-    { condition = tex.in_math, show_condition = tex.in_math }
+    { condition = tex.in_math, show_condition = tex.in_mathzone}
   ),
 }
 

@@ -56,7 +56,10 @@
 \newcommand\Q{\ensuremath{\mathbb{Q}}}
 \newcommand\C{\ensuremath{\mathbb{C}}}
 \renewcommand\O{\ensuremath{\emptyset}}
-
+\renewcommand\iff{\ensuremath{\Leftrightarrow}}
+\newcommand\Lagr{\ensuremath{\mathcal{L}}}
+\newcommand\Lapl{\ensuremath{\mathscr{C}}}
+\newcommand\Fourier{\ensuremath{\mathscr{F}}}
 % Add \contra symbol to denote contradiction
 \RequirePackage{stmaryrd} % for \lightning
 \newcommand\contra{\scalebox{1.5}{$\lightning$}}

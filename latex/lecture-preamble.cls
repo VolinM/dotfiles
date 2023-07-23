@@ -3,7 +3,7 @@
 \ProvidesClass{lecture-preamble}[custom format for class notes]
 
 % Some basic packages
-\usepackage[a4paper, hmarginratio=1:1,twoside, total={5.0in, 9in}]{geometry}
+\RequirePackage[a4paper, hmarginratio=1:1,twoside, total={5.0in, 9in}]{geometry}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{textcomp}
@@ -23,7 +23,7 @@
 \RequirePackage{emptypage}
 \RequirePackage{subcaption}
 \RequirePackage{multicol}
-\RequirePackage{xcolor}
+\RequirePackage[divpsnames]{xcolor}
 
 % Other font I sometimes use.
 % \RequirePackage{cmbright}
@@ -45,6 +45,9 @@
 \RequirePackage{esint}
 % Easily typeset systems of equations (French package)
 \RequirePackage{systeme}
+
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
 
 % Set shortcuts
 \newcommand\N{\ensuremath{\mathbb{N}}}
@@ -80,39 +83,37 @@
 \RequirePackage{mdframed}
 \mdfsetup{skipabove=1em,skipbelow=0em}
 \theoremstyle{definition}
-\newcounter{dummy}\numberwithin{dummy}{section}
-\mdtheorem[nobreak=true]{definition}{Definition}[dummy]
-\mdtheorem[nobreak=true]{property}{Property}[dummy]
-\mdtheorem[nobreak=true]{result}{Result}[dummy]
-\mdtheorem[nobreak=true]{lemma}{Lemma}[dummy]
-\mdtheorem[nobreak=true]{propositon}{Proposition}[dummy]
-\mdtheorem[nobreak=true]{statement}{Statement}[dummy]
-\mdtheorem[nobreak=true]{law}{Law}[dummy]
-\mdtheorem[nobreak=true]{postulate}{Postulate}[dummy]
-\mdtheorem{conclusion}{Conclusion}
+\mdtheorem[nobreak=true]{definition}{Definition}[section]
+\mdtheorem[nobreak=true]{property}{Property}[definition]
+\mdtheorem[nobreak=true]{result}{Result}[definition]
+\mdtheorem[nobreak=true]{lemma}{Lemma}[section]
+\mdtheorem[nobreak=true]{proposition}{Proposition}[section]
+\mdtheorem[nobreak=true]{statement}{Statement}[section]
+\mdtheorem[nobreak=true]{law}{Law}[section]
+\mdtheorem[nobreak=true]{postulate}{Postulate}[section]
+\mdtheorem{conclusion}{Conclusion}[section]
 \mdtheorem{extra}{Extra}
-\mdtheorem{presumtion}{Presumption}
+\mdtheorem{presumption}{Presumption}
 \newtheorem*{repetition}{Repetition}
 \newtheorem*{interlude}{Interlude}
-\newtheorem*{note}{Note}
+\newtheorem*{note-}{Note}
 \newtheorem*{observation}{Observation}
-% \newtheorem*{oef}{Oefening}
 \newtheorem*{remark}{Remark}
-\newtheorem*{prectical}{Practical}
+\newtheorem*{practical}{Practical}
 \newtheorem*{problem}{Problem}
 \newtheorem*{terminology}{Terminology}
 \newtheorem*{application}{Application}
-\newtheorem*{UsEg}{Usage Example}
+\newtheorem*{usage-example}{Usage Example}
 \newtheorem*{ask}{Ask}
 
-\newtheorem*{eg}{Example}
+\newtheorem*{example}{Example}
 \newtheorem*{notation}{Notation}
-\newtheorem*{previouslyseen}{As previously seen}
+\newtheorem*{previously-seen}{As previously seen}
 \newtheorem*{observe}{Observe}
 \newtheorem*{intuition}{Intuition}
-\mdtheorem[nobreak=true]{prop}{Proposition}
-\mdtheorem[nobreak=true]{theorem}{Theorem}
-\mdtheorem[nobreak=true]{corollary}{Corollary}
+\mdtheorem[nobreak=true]{prop}{Proposition}[section]
+\mdtheorem[nobreak=true]{theorem}{Theorem}[section]
+\mdtheorem[nobreak=true]{corollary}{Corollary}[theorem]
 \renewcommand\qedsymbol{QED}
 
 
@@ -120,7 +121,7 @@
 % End example and intermezzo environments with a small diamond (just like proof
 % environments end with a small square)
 \RequirePackage{etoolbox}
-\AtEndEnvironment{UsEg}{\null\hfill$\diamond$}%
+\AtEndEnvironment{usage-example}{\null\hfill$\diamond$}%
 \AtEndEnvironment{interlude}{\null\hfill$\diamond$}%
 % \AtEndEnvironment{opmerking}{\null\hfill$\diamond$}%
 
@@ -144,15 +145,18 @@
 %   Oefening 5.1
 %   Oefening 5.2
 %   Oefening 5.3
-\newcommand{\oefening}[1]{%
-	\def\@oefening{#1}%
-	\subsection*{Oefening #1}
+\newcommand{\exercise}[1]{%
+	\def\@exercise{#1}%
+	\subsection*{Exercise #1}
 }
 
-\newcommand{\suboefening}[1]{%
-	\subsubsection*{Oefening \@oefening.#1}
+\newcommand{\subexercise}[1]{%
+	\subsubsection*{Exercise \@exercise.#1}
 }
 
+\newcommand{\solution}[1]{%
+	\subsubsection*{Solution \@exercise.#1}
+}
 
 % \lecture starts a new lecture (les in dutch)
 %
@@ -220,17 +224,17 @@
 %     vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
 %     no sea takimata sanctus est Lorem ipsum dolor sit amet.
 % \end{verbetering}
-\newenvironment{verbetering}{\begin{tcolorbox}[
+\newenvironment{correction}{\begin{tcolorbox}[
 			arc=0mm,
 			colback=white,
 			colframe=green!60!black,
-			title=Opmerking,
+			title=Correction,
 			fonttitle=\sffamily,
 			breakable
 		]}{\end{tcolorbox}}
 
 % Noot is note in Dutch. Same as 'verbetering' but color of box is different
-\newenvironment{noot}[1]{\begin{tcolorbox}[
+\newenvironment{note}[1]{\begin{tcolorbox}[
 			arc=0mm,
 			colback=white,
 			colframe=white!60!black,

@@ -22,8 +22,8 @@ end
 local M = {
   -- INTEGRAL
   s(
-    { trig = "([^%a])int", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
-    fmta("<>\\int<><>", {
+    { trig = "([^%a])int", wordTrig = false, regTrig = true, snippetType = "autosnippet", priority = 1500 },
+    fmta([[<>\int<><>]], {
       f(function(_, snip)
         return snip.captures[1]
       end),
@@ -38,7 +38,7 @@ local M = {
   ),
   -- DOUBLE INTEGRAL
   s(
-    { trig = "([^%a])iint", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    { trig = "([^%a])iint", wordTrig = false, regTrig = true, snippetType = "autosnippet", priority = 2000 },
     fmta("<>\\iint<><>", {
       f(function(_, snip)
         return snip.captures[1]

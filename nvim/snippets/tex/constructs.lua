@@ -154,6 +154,45 @@ local M = {
     ),
     { condition = tex.in_math }
   ),
+  -- CANCEL
+  s(
+    { trig = "(%a?)#", regTrig = true, snippetType = "autosnippet" },
+    fmta(
+      [[
+    \calcel{<>}<>
+    ]],
+      {
+        f(function(_, snip)
+          return snip.captures[1]
+        end),
+        i(0),
+      }
+    ),
+    { condition = tex.in_math }
+  ),
+  -- ABSOLUTE VALUE
+  s(
+    { trig = "([^%a])aa", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+    fmta("<>\\abs{<>}", {
+      f(function(_, snip)
+        return snip.captures[1]
+      end),
+      d(1, get_visual),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  -- BINOMIAL SYMBOL
+  s(
+    { trig = "([^%\\])bnn", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    fmta("<>\\binom{<>}{<>}", {
+      f(function(_, snip)
+        return snip.captures[1]
+      end),
+      i(1),
+      i(2),
+    }),
+    { condition = tex.in_mathzone }
+  ),
 }
 
 return M

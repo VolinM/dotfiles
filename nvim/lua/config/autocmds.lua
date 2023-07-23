@@ -61,5 +61,10 @@ acmd("FileType", {
       { buffer = event.buf, remap = false }
     )
     vim.keymap.set({ "i", "v", "n", "s" }, "<F12>", "<esc><C-j><cmd>q<cr>", { buffer = event.buf, remap = true })
+    vim.keymap.set({ "i", "s" }, "æ", function()
+      if require("luasnip").choice_active() then
+        require("luasnip").change_choice(1)
+      end
+    end, { silent = true })
   end,
 })

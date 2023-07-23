@@ -11,12 +11,6 @@ vim.keymap.set(
   { noremap = true, silent = true, desc = "Resume" }
 )
 
-vim.keymap.set({ "i", "s" }, "€", function()
-  if require("luasnip").choice_active() then
-    require("luasnip").change_choice(1)
-  end
-end, { silent = true })
-
 vim.keymap.set(
   "i",
   "<C-f>",

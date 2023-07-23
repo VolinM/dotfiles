@@ -97,6 +97,14 @@ local M = {
     }),
     { condition = tex.in_mathzone }
   ),
+  -- CURL
+  s(
+    { trig = "lapl", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    fmta("\\laplacian<>", {
+      i(0),
+    }),
+    { condition = tex.in_mathzone }
+  ),
 }
 
 return M

@@ -57,6 +57,30 @@ local M = {
   s({ trig = "Im", snippetType = "autosnippet" }, {
     t("\\Im"),
   }, { condition = tex.in_mathzone }),
+  s({ trig = "ll", snippetType = "autosnippet" }, {
+    t("\\ell"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "ł", snippetType = "autosnippet" }, {
+    t("\\Lagr"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "þ", snippetType = "autosnippet" }, {
+    t("\\Lapl"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "đ", snippetType = "autosnippet" }, {
+    t("\\Fourier"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "AA", snippetType = "autosnippet" }, {
+    t("\\forall"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "EE", snippetType = "autosnippet" }, {
+    t("\\exists"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "/EE", snippetType = "autosnippet" }, {
+    t("\\nexists"),
+  }, { condition = tex.in_mathzone }),
+  s({ trig = "ang", snippetType = "autosnippet" }, {
+    t("\\angle"),
+  }, { condition = tex.in_mathzone }),
 }
 
 return M

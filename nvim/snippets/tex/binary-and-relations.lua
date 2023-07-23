@@ -18,7 +18,7 @@ local M = {
   s({ trig = "star", snippetType = "autosnippet", wordTrig = false }, {
     t("\\star"),
   }, { condition = tex.in_mathzone }),
-  s({ trig = ".-", snippetType = "autosnippet", wordTrig = false }, {
+  s({ trig = "·", snippetType = "autosnippet", wordTrig = false }, {
     t("\\cdot"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "circ", snippetType = "autosnippet", wordTrig = false }, {
@@ -99,10 +99,10 @@ local M = {
   s({ trig = "/>", snippetType = "autosnippet" }, {
     t("\\ngtr"),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "-<", snippetType = "autosnippet", wordTrig = false }, {
+  s({ trig = "prec", snippetType = "autosnippet", wordTrig = false }, {
     t("\\prec"),
   }, { condition = tex.in_mathzone }),
-  s({ trig = ">-", snippetType = "autosnippet", wordTrig = false }, {
+  s({ trig = "succ", snippetType = "autosnippet", wordTrig = false }, {
     t("\\succ"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "||", snippetType = "autosnippet", wordTrig = false }, {
@@ -126,7 +126,7 @@ local M = {
   s({ trig = "!in", snippetType = "autosnippet", wordTrig = false }, {
     t("\\notin"),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "in", snippetType = "autosnippet", wordTrig = false }, {
+  s({ trig = "€", snippetType = "autosnippet", wordTrig = false }, {
     t("\\in"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "ni", snippetType = "autosnippet", wordTrig = false }, {

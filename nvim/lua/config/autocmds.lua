@@ -54,5 +54,12 @@ acmd("FileType", {
     vim.keymap.set("n", "<leader>lm", "<plug>(vimtex-imaps-list)<CR>", { buffer = event.buf, desc = "Imaps List" })
     vim.keymap.set("n", "<leader>lx", "<plug>(vimtex-reload)<CR>", { buffer = event.buf, desc = "Reload" })
     vim.keymap.set("n", "<leader>ls", "<plug>(vimtex-toggle-main)<CR>", { buffer = event.buf, desc = "Toggle Main" })
+    vim.keymap.set(
+      { "i", "v", "n", "s" },
+      "<C-c>",
+      "<cmd>w<cr><esc><plug>(vimtex-compile)<CR>",
+      { buffer = event.buf, remap = false }
+    )
+    vim.keymap.set({ "i", "v", "n", "s" }, "<F12>", "<esc><C-j><cmd>q<cr>", { buffer = event.buf, remap = true })
   end,
 })

@@ -113,36 +113,39 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+export PATH=$PATH:/home/volinm/.spicetify
+
+PATH=/usr/local/texlive/2023/bin/x86_64-linux:$PATH; export PATH MANPATH=/usr/local/texlive/2023/texmf-dist/doc/man:$MANPATH; export MANPATH INFOPATH=/usr/local/texlive/2023/texmf-dist/doc/info:$INFOPATH; export INFOPATH
+alias config='/usr/bin/git --git-dir=/home/volinm/.cfg/ --work-tree=/home/volinm'
 
 alias zshrc='nvim ~/.zshrc'
 alias src='source ~/.zshrc'
 
 alias cls='clear'
-alias ls='exa --icons'
 
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 alias vimrc='cd ~/.config/nvim/'
 
+alias rm='trash'
+alias ls='exa --icons'
 alias lg='lazygit'
 
 alias docs='cd ~/Documents/'
 alias conf='cd ~/.config/'
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-PATH=/usr/local/texlive/2023/bin/x86_64-linux:$PATH; export PATH MANPATH=/usr/local/texlive/2023/texmf-dist/doc/man:$MANPATH; export MANPATH INFOPATH=/usr/local/texlive/2023/texmf-dist/doc/info:$INFOPATH; export INFOPATH
-alias config='/usr/bin/git --git-dir=/home/volinm/.cfg/ --work-tree=/home/volinm'
-alias config='/usr/bin/git --git-dir=/home/volinm/.cfg/ --work-tree=/home/volinm'
+alias nvimrc='cd ~/.config/nvim/'
+alias scriptrc='cd ~/.config/scripts/'
 
 alias venv='source ~/.venv/bin/activate'
 
 alias graham='ssh -Y mvolin@graham.computecanada.ca'
 alias pico='cd ~/PICOcode/PICOcode/UserCode/mvolin/'
 
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 clear
 
 git -C ~/.config/ pull
 
-export PATH=$PATH:/home/volinm/.spicetify

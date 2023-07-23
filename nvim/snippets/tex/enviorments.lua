@@ -42,7 +42,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   -- ENVIRONMENT WITH ONE EXTRA ARGUMENT
   s(
@@ -64,7 +64,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   -- ENVIRONMENT WITH TWO EXTRA ARGUMENTS
   s(
@@ -87,7 +87,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   -- EQUATION
   s(
@@ -120,7 +120,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   -- SPLIT EQUATION
   s(
@@ -153,7 +153,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   -- ALIGN
   s(
@@ -186,7 +186,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   -- ITEMIZE
   s(
@@ -205,7 +205,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   -- ENUMERATE
   s(
@@ -224,7 +224,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "([^%l])mm", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
@@ -252,7 +252,7 @@ local M = {
         d(1, get_visual),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   -- FIGURE
   s(
@@ -277,12 +277,12 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "([.])-", regTrig = true, snippetType = "autosnippet" },
     fmta("\\item <>", { i(0) }),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "lbb", regTrig = true, snippetType = "autosnippet" },
@@ -306,7 +306,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "property", name = "property" },
@@ -325,7 +325,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "result", name = "result" },
@@ -344,7 +344,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "lemma", name = "lemma" },
@@ -363,7 +363,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "proposition", name = "proposition" },
@@ -382,7 +382,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "statement", name = "statement" },
@@ -401,7 +401,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "law", name = "law" },
@@ -420,7 +420,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "postulate", name = "postulate" },
@@ -439,7 +439,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "conclusion", name = "conclusion" },
@@ -458,7 +458,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "extra", name = "extra" },
@@ -477,7 +477,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "presumption", name = "presumption" },
@@ -496,7 +496,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "repetition", name = "repetition" },
@@ -515,7 +515,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "interlude", name = "interlude" },
@@ -534,7 +534,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "inote", name = "inote" },
@@ -553,7 +553,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "observation", name = "observation" },
@@ -572,7 +572,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "remark", name = "remark" },
@@ -591,7 +591,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "practical", name = "practical" },
@@ -610,7 +610,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "problem", name = "problem" },
@@ -629,7 +629,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "terminology", name = "terminology" },
@@ -648,7 +648,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "application", name = "application" },
@@ -667,7 +667,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "usage-example", name = "usage-example" },
@@ -686,7 +686,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "ask", name = "ask" },
@@ -705,7 +705,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "example", name = "example" },
@@ -724,7 +724,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "notation", name = "notation" },
@@ -743,7 +743,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "previously-seen", name = "previously-seen" },
@@ -762,7 +762,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "observe", name = "observe" },
@@ -781,7 +781,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "intuition", name = "intuition" },
@@ -800,7 +800,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "theorem", name = "theorem" },
@@ -819,7 +819,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "corollary", name = "corollary" },
@@ -838,7 +838,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "correction", name = "correction" },
@@ -857,7 +857,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "note", name = "note" },
@@ -876,7 +876,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "pff", name = "proof", snippetType = "autosnippet" },
@@ -895,7 +895,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "exx", name = "exercise", snippetType = "autosnippet" },
@@ -912,7 +912,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "sex", name = "subexercise", snippetType = "autosnippet" },
@@ -929,7 +929,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   s(
     { trig = "sll", name = "solution", snippetType = "autosnippet" },
@@ -946,7 +946,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
 }
 

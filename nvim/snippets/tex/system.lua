@@ -32,7 +32,7 @@ local M = {
         i(2, "article"),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   -- USE A LATEX PACKAGE
   s(
@@ -45,7 +45,7 @@ local M = {
         d(1, get_visual),
       }
     ),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   -- SECTION
   s(
@@ -53,7 +53,7 @@ local M = {
     fmta([[\section{<>}]], {
       d(1, get_visual),
     }),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   -- SUBSECTION
   s(
@@ -68,7 +68,7 @@ local M = {
     fmta([[\subsubsection{<>}]], {
       d(1, get_visual),
     }),
-    { condition = line_begin and tex.in_text }
+    { condition = line_begin * tex.in_text }
   ),
   -- LABEL
   s(

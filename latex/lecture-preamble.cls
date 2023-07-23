@@ -25,6 +25,15 @@
 \RequirePackage{multicol}
 \RequirePackage[divpsnames,x11names]{xcolor}
 
+\newcounter{Chapcounter}
+\newcommand\showmycounter{\addtocounter{Chapcounter}{1}\themycounter}
+\newcommand{\chapter}[1] 
+{ {\centering          
+  \addtocounter{Chapcounter}{1} \LARGE \underline{\textbf{ \color{black} Chapter \theChapcounter: ~#1}} \vspace{1em} }   
+  \addcontentsline{toc}{section}{ \color{black} Chapter:~\theChapcounter~~ #1}
+}
+\AddToHook{cmd/chapter/before}{\clearpage}
+
 \RequirePackage[overload]{empheq}
 % Other font I sometimes use.
 % \RequirePackage{cmbright}

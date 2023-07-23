@@ -49,6 +49,14 @@ local M = {
   ),
   -- SECTION
   s(
+    { trig = "h0", snippetType = "autosnippet" },
+    fmta([[\chapter{<>}]], {
+      d(1, get_visual),
+    }),
+    { condition = line_begin * tex.in_text }
+  ),
+  -- SECTION
+  s(
     { trig = "h1", snippetType = "autosnippet" },
     fmta([[\section{<>}]], {
       d(1, get_visual),

@@ -56,49 +56,49 @@ local mat = function(args, snip)
 end
 
 local M = {
-  -------------------------------
-  -- BASIC OPERATORS
-  -------------------------------
-
-  -- NOT LESS
-  s({ trig = "/<", snippetType = "autosnippet" }, {
-    t("\\nless"),
+  s({ trig = "h¨", snippetType = "autosnippet", wordTrig = false }, {
+    t("\\hbar"),
   }, { condition = tex.in_mathzone }),
-  -- NOT MORE
-  s({ trig = "/>", snippetType = "autosnippet" }, {
-    t("\\ngtr"),
-  }, { condition = tex.in_mathzone }),
-  -- LESS OR EQUAL
-  s({ trig = "<=", snippetType = "autosnippet" }, {
-    t("\\leq"),
-  }, { condition = tex.in_mathzone }),
-  -- MORE OR EQUAL
-  s({ trig = ">=", snippetType = "autosnippet" }, {
-    t("\\geq"),
-  }, { condition = tex.in_mathzone }),
-  -- PRECEDES
-  s({ trig = "prec", snippetType = "autosnippet" }, {
-    t("\\prec"),
-  }, { condition = tex.in_mathzone }),
-  -- SUCCEEDS
-  s({ trig = "succ", snippetType = "autosnippet" }, {
-    t("\\succ"),
-  }, { condition = tex.in_mathzone }),
-  -- PRECEDES OR EQUALS
-  s({ trig = "preceq", snippetType = "autosnippet" }, {
-    t("\\preceq"),
-  }, { condition = tex.in_mathzone }),
-  -- SUCCEEDS OR EQUALS
-  s({ trig = "succeq", snippetType = "autosnippet" }, {
-    t("\\succeq"),
-  }, { condition = tex.in_mathzone }),
-  -- MUCH GREATER
-  s({ trig = ">>", snippetType = "autosnippet" }, {
-    t("\\gg"),
-  }, { condition = tex.in_mathzone }),
-  -- MUCH LESSER
-  s({ trig = "<<", snippetType = "autosnippet" }, {
-    t("\\ll"),
-  }, { condition = tex.in_mathzone }),
+  s(
+    { trig = "brr", regTrig = true, snippetType = "autosnippet" },
+    fmta(
+      [[
+    \bra{<>}<>
+    ]],
+      {
+        d(1, get_visual),
+        i(0),
+      }
+    ),
+    { condition = tex.in_math }
+  ),
+  s(
+    { trig = "ktt", regTrig = true, snippetType = "autosnippet" },
+    fmta(
+      [[
+    \ket{<>}<>
+    ]],
+      {
+        d(1, get_visual),
+        i(0),
+      }
+    ),
+    { condition = tex.in_math }
+  ),
+  s(
+    { trig = "bkk", regTrig = true, snippetType = "autosnippet" },
+    fmta(
+      [[
+    \braket{<>}{<>}<>
+    ]],
+      {
+        d(1, get_visual),
+        i(2),
+        i(0),
+      }
+    ),
+    { condition = tex.in_math }
+  ),
 }
+
 return M

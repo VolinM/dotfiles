@@ -159,7 +159,7 @@ local M = {
 
   -- HYPER-SINE
   s(
-    { trig = "([^%a])sinh", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    { trig = "([^%a])hsin", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
     fmta("\\sinh{<>} <>", {
       i(1),
       i(0),
@@ -168,7 +168,7 @@ local M = {
   ),
   -- HYPER-COSINE
   s(
-    { trig = "([^%a])cosh", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    { trig = "([^%a])hcos", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
     fmta("\\cosh{<>} <>", {
       i(1),
       i(0),
@@ -177,7 +177,7 @@ local M = {
   ),
   -- HYPER-TANGENT
   s(
-    { trig = "([^%a])tanh", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    { trig = "([^%a])htan", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
     fmta("\\tanh{<>} <>", {
       i(1),
       i(0),
@@ -186,7 +186,7 @@ local M = {
   ),
   -- HYPER-COTANGENT
   s(
-    { trig = "([^%a])coth", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    { trig = "([^%a])hcot", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
     fmta("\\coth{<>} <>", {
       i(1),
       i(0),
@@ -195,7 +195,7 @@ local M = {
   ),
   -- HYPER-SECANT
   s(
-    { trig = "([^%a])sech", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    { trig = "([^%a])hsec", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
     fmta("\\sech{<>} <>", {
       i(1),
       i(0),
@@ -204,7 +204,7 @@ local M = {
   ),
   -- HYPER-COSECANT
   s(
-    { trig = "([^%a])csch", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    { trig = "([^%a])hcsc", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
     fmta("\\csch{<>} <>", {
       i(1),
       i(0),

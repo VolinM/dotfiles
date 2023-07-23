@@ -1,24 +1,12 @@
 local ls = require("luasnip")
 -- some shorthands...
 local s = ls.snippet
-local sn = ls.snippet_node
-local t = ls.text_node
 local i = ls.insert_node
 local f = ls.function_node
 local c = ls.choice_node
 local d = ls.dynamic_node
-local r = ls.restore_node
-local l = require("luasnip.extras").lambda
 local rep = require("luasnip.extras").rep
-local p = require("luasnip.extras").partial
-local m = require("luasnip.extras").match
-local n = require("luasnip.extras").nonempty
-local dl = require("luasnip.extras").dynamic_lambda
-local fmt = require("luasnip.extras.fmt").fmt
 local fmta = require("luasnip.extras.fmt").fmta
-local types = require("luasnip.util.types")
-local lambda = require("luasnip.extras").l
-local postfix = require("luasnip.extras.postfix").postfix
 
 local helpers = require("utils.luasnip-helper")
 local get_visual = helpers.get_visual
@@ -54,7 +42,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin }
+    { condition = line_begin and tex.in_text }
   ),
   -- ENVIRONMENT WITH ONE EXTRA ARGUMENT
   s(
@@ -76,7 +64,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin }
+    { condition = line_begin and tex.in_text }
   ),
   -- ENVIRONMENT WITH TWO EXTRA ARGUMENTS
   s(
@@ -99,7 +87,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin }
+    { condition = line_begin and tex.in_text }
   ),
   -- EQUATION
   s(
@@ -132,7 +120,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin }
+    { condition = line_begin and tex.in_text }
   ),
   -- SPLIT EQUATION
   s(
@@ -165,7 +153,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin }
+    { condition = line_begin and tex.in_text }
   ),
   -- ALIGN
   s(
@@ -198,7 +186,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin }
+    { condition = line_begin and tex.in_text }
   ),
   -- ITEMIZE
   s(
@@ -217,7 +205,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin }
+    { condition = line_begin and tex.in_text }
   ),
   -- ENUMERATE
   s(
@@ -235,9 +223,9 @@ local M = {
       {
         i(0),
       }
-    )
+    ),
+    { condition = line_begin and tex.in_text }
   ),
-  -- INLINE MATH
   s(
     { trig = "([^%l])mm", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
     fmta("<>$<>$", {
@@ -245,14 +233,26 @@ local M = {
         return snip.captures[1]
       end),
       d(1, get_visual),
-    })
+    }),
+    { condition = tex.in_text }
   ),
-  -- INLINE MATH ON NEW LINE
+  -- DISPLAY MATH
   s(
-    { trig = "_mm", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
-    fmta("$<>$", {
-      i(1),
-    })
+    { trig = "mk", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+    fmta(
+      [[
+    <>\[
+    <>
+    \]
+    ]],
+      {
+        f(function(_, snip)
+          return snip.captures[1]
+        end),
+        d(1, get_visual),
+      }
+    ),
+    { condition = line_begin and tex.in_text }
   ),
   -- FIGURE
   s(
@@ -277,12 +277,12 @@ local M = {
         i(0),
       }
     ),
-    { condition = line_begin }
+    { condition = line_begin and tex.in_text }
   ),
   s(
-    { trig = "°", regTrig = true, snippetType = "autosnippet" },
+    { trig = "([.])-", regTrig = true, snippetType = "autosnippet" },
     fmta("\\item <>", { i(0) }),
-    { condition = line_begin }
+    { condition = line_begin and tex.in_text }
   ),
   s(
     { trig = "lbb", regTrig = true, snippetType = "autosnippet" },

@@ -140,7 +140,7 @@ alias latexrc='cd ~/.config/latex/'
 
 alias venv='source ~/.venv/bin/activate'
 
-alias graham='ssh -Y mvolin@graham.computecanada.ca'
+alias graham='ssh -XY mvolin@graham.computecanada.ca'
 alias pico='cd ~/PICOcode/PICOcode/UserCode/mvolin/'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

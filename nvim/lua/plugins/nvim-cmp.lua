@@ -37,6 +37,7 @@ local M = {
         }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
       }),
       sources = cmp.config.sources({
+        { name = "jupynium", priority = 1000 },
         { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "buffer" },

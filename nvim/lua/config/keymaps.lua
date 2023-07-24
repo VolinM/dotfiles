@@ -14,7 +14,7 @@ vim.keymap.set(
 vim.keymap.set(
   "i",
   "<C-f>",
-  [[<Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR> ]]
+  [[<Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'lua=vim.b.vimtex.root.'/figures/"'<CR><CR>:w<CR> ]]
 )
 -- vim.keymap.set(
 --   "n",
@@ -30,4 +30,4 @@ map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 
 map({ "n", "v" }, "<Del>", '"_<Del>')
-map("n", "<C-q>", "<cmd>qa<cr>", { desc = "Quit all" })
+map({ "i", "n", "v", "s" }, "<C-q>", "<cmd>qa<cr>", { desc = "Quit all" })

@@ -22,6 +22,7 @@ acmd("FileType", {
     vim.opt_local.wrap = true
     vim.opt_local.linebreak = true
     vim.opt_local.list = false
+    vim.opt_local.textwidth = 80
     --
     map({ "n", "v" }, "j", "gj", { noremap = true })
     map({ "n", "v" }, "k", "gk", { noremap = true })
@@ -65,6 +66,12 @@ acmd("FileType", {
       { "i", "v", "n", "s" },
       "<C-c>",
       "<cmd>w<cr><esc><plug>(vimtex-compile)<CR>",
+      { buffer = event.buf, remap = false }
+    )
+    map(
+      { "i", "n" },
+      "<C-f>",
+      [[<esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><cwd>:w<CR>]],
       { buffer = event.buf, remap = false }
     )
   end,

@@ -6,6 +6,7 @@
 \RequirePackage[a4paper, hmarginratio=1:1,twoside, total={5.0in, 9in}]{geometry}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc}
+\RequirePackage[hidelinks,bookmarks]{hyperref}
 \RequirePackage{textcomp}
 \RequirePackage[english]{babel}
 \RequirePackage{url}
@@ -15,7 +16,6 @@
 \RequirePackage{enumitem}
 \RequirePackage{lipsum}
 \pdfminorversion=7
-
 % Don't indent paragraphs, leave some space between them
 \RequirePackage{parskip}
 
@@ -29,8 +29,8 @@
 \newcommand\showmycounter{\addtocounter{Chapcounter}{1}\themycounter}
 \newcommand{\chapter}[1] 
 { {\centering          
-  \addtocounter{Chapcounter}{1} \LARGE \underline{\textbf{ \color{black} Chapter \theChapcounter: ~#1}} \vspace{1em} }   
-  \addcontentsline{toc}{section}{ \color{black} Chapter:~\theChapcounter~~ #1}
+  \addtocounter{Chapcounter}{1} \LARGE \underline{\textbf{ Chapter \theChapcounter: ~#1}} \vspace{1em} }   
+  \addcontentsline{toc}{section}{ Chapter:~\theChapcounter~~ #1}
 }
 \AddToHook{cmd/chapter/before}{\clearpage}
 
@@ -107,7 +107,7 @@
 \mdtheorem[nobreak=true]{statement}{Statement}[section]
 \mdtheorem[nobreak=true]{law}{Law}[section]
 \mdtheorem[nobreak=true]{postulate}{Postulate}[section]
-\mdtheorem{conclusion}{Conclusion}[section]
+\mdtheorem{conclusion}{Conclusion}
 \mdtheorem{extra}{Extra}
 \mdtheorem{presumption}{Presumption}
 \newtheorem*{repetition}{Repetition}
@@ -259,7 +259,6 @@
 			breakable
 		]}{\end{tcolorbox}}
 
-
 % Figure support as explained in my blog post.
 \RequirePackage{import}
 \RequirePackage{xifthen}
@@ -267,7 +266,7 @@
 \RequirePackage{transparent}
 \newcommand{\incfig}[1]{%
 	\def\svgwidth{\columnwidth}
-	\import{./figures/}{#1.pdf_tex}
+  \import{}{#1.pdf_tex}
 }
 
 

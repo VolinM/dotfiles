@@ -22,12 +22,14 @@ vim.keymap.set(
 --   [[: silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>]]
 --)
 
--- sprint to begining or end in insert mode
+-- sprinet to begining or end in insert mode
 map("i", "<S-Right>", "<Esc>$a")
 map("i", "<S-Left>", "<Esc>^i")
--- keep cursor centered while jumping
-map("n", "<C-d>", "<C-d>zz")
-map("n", "<C-u>", "<C-u>zz")
-
-map({ "n", "v" }, "<Del>", '"_<Del>')
+-- keep cursor centered while jumpin"
+map("n", "<C-d>", "<C-d>zz", { remap = false })
+map("n", "<C-u>", "<C-u>zz", { remap = false })
+map("n", "n", "nzz", { remap = false })
+map("n", "N", "Nzz", { remap = false })
+-- <del> key goes into the blanq buffer
+map({ "n", "v", "s" }, "<Del>", '"_<Del>')
 map({ "i", "n", "v", "s" }, "<C-q>", "<cmd>qa<cr>", { desc = "Quit all" })

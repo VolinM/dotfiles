@@ -114,7 +114,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export PATH=$PATH:/home/volinm/.spicetify
-
+export PATH=/home/volinm/.local/lib/python3.10/site-packages:$PATH
 PATH=/usr/local/texlive/2023/bin/x86_64-linux:$PATH; export PATH MANPATH=/usr/local/texlive/2023/texmf-dist/doc/man:$MANPATH; export MANPATH INFOPATH=/usr/local/texlive/2023/texmf-dist/doc/info:$INFOPATH; export INFOPATH
 alias config='/usr/bin/git --git-dir=/home/volinm/.cfg/ --work-tree=/home/volinm'
 

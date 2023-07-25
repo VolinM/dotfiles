@@ -22,7 +22,7 @@ end
 local M = {
   -- SUPERSCRIPT
   s(
-    { trig = '([%w%)%]%}])"', wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    { trig = '([%w%)%]%}])""', wordTrig = false, regTrig = true, snippetType = "autosnippet" },
     fmta("<>^{<>}", {
       f(function(_, snip)
         return snip.captures[1]

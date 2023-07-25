@@ -69,10 +69,38 @@ acmd("FileType", {
       { buffer = event.buf, remap = false }
     )
     map(
-      { "i", "n" },
+      { "i" },
       "<C-f>",
       [[<esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><cwd>:w<CR>]],
       { buffer = event.buf, remap = false }
+    )
+    map(
+      { "n" },
+      "<C-f>",
+      [[: silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>]],
+      { buffer = event.buf, remap = false }
+    )
+  end,
+})
+
+acmd("FileType", {
+  group = augroup("jupyter"),
+  pattern = { "ju.py", "python", "py", "ipynb" },
+  callback = function(event)
+    -- insert new jupyter cell
+    vim.opt_local.formatoptions:remove({ "r", "o" })
+    map({ "i", "n" }, "<C-n>", "<esc>i# %% \n\n", { buffer = event.buf, remap = false })
+    map(
+      { "i", "v", "n", "s" },
+      "<C-c>",
+      "<cmd>w<cr><esc><cmd>JupyniumStartAndAttachToServer<CR>",
+      { buffer = event.buf, remap = false }
+    )
+    vim.keymap.set(
+      { "n", "x" },
+      "<C-x>",
+      "<cmd>JupyniumExecuteSelectedCells<CR>",
+      { buffer = event.buf, desc = "Jupynium execute selected cells" }
     )
   end,
 })

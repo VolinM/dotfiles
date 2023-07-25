@@ -6,7 +6,7 @@ for course in Courses():
         course_title = lectures.course.info["title"]
         lines = [
                 r'\makeatletter',
-                r'\def\input@path{{~/.config/latex/}}',
+                r'\def\input@path{{~/current-book/figures/}{~/.config/latex/}}',
                 r'\documentclass{lecture-preamble}',
                 fr'\title{{{course_title}}}',
                 r'\begin{document}',

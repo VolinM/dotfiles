@@ -7,7 +7,7 @@ local M = {
       })
     end,
   },
-  { "echasnovski/mini.pairs", enabled = false },
+  -- { "echasnovski/mini.pairs", enabled = false },
 }
 
 return M

@@ -11,18 +11,7 @@ vim.keymap.set(
   { noremap = true, silent = true, desc = "Resume" }
 )
 
-vim.keymap.set(
-  "i",
-  "<C-f>",
-  [[<Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'lua=vim.b.vimtex.root.'/figures/"'<CR><CR>:w<CR> ]]
-)
--- vim.keymap.set(
---   "n",
---   "<C-f>",
---   [[: silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>]]
---)
-
--- sprinet to begining or end in insert mode
+-- sprint to begining or end in insert mode
 map("i", "<S-Right>", "<Esc>$a")
 map("i", "<S-Left>", "<Esc>^i")
 -- keep cursor centered while jumpin"

@@ -22,6 +22,8 @@ local M = {
             return vim.api.nvim_win_get_config(win).relative == ""
           end,
         },
+      },
+      right = {
         {
           ft = "noice",
           size = { height = 0.4 },

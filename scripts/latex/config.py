@@ -11,8 +11,8 @@ def get_week(d=datetime.today()):
 # example:
 # USERCALENDARID = 'xxxxxxxxxxxxxxxxxxxxxxxxxg@group.calendar.google.com'
 USERCALENDARID = 'primary'
-CURRENT_COURSE_SYMLINK = Path('~/current-book').expanduser()
+CURRENT_COURSE_SYMLINK = Path('~/current-notebook').expanduser()
 CURRENT_COURSE_ROOT = CURRENT_COURSE_SYMLINK.resolve()
-CURRENT_COURSE_WATCH_FILE = Path('/tmp/current-books').resolve()
+CURRENT_COURSE_WATCH_FILE = Path('/tmp/current-notebooks').resolve()
 ROOT = Path('~/Documents/notes/books/current/').expanduser()
 DATE_FORMAT = '%a, %b %d, %Y'

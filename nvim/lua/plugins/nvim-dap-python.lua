@@ -1,6 +1,6 @@
 local M = {
   "mfussenegger/nvim-dap-python",
-  ft = { "py", "python", "jupyter", "ipynb" },
+  -- ft = { "py", "python", "jupyter", "ipynb" },
   -- stylua: ignore
   keys = {
     { "<leader>dPt", function() require('dap-python').test_method() end, desc = "Debug Method" },

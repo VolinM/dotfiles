@@ -4,7 +4,7 @@ import os
 import subprocess
 
 # Set up the required paths and variables
-CURR = os.path.expanduser("~/current-notebook/")
+CURR = os.path.expanduser("~/notebook/")
 MASTER_FILE = os.path.join(CURR, "master.tex")
 
 def master_file_exists():

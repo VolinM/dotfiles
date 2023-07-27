@@ -6,7 +6,7 @@ import subprocess
 from datetime import datetime
 
 # Set up the required paths and variables
-CURR = os.path.expanduser("~/current-notebook/")
+CURR = os.path.expanduser("~/notebook/")
 num = 0
 max = 0
 next_lecture = 0

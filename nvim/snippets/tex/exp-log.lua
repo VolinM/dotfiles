@@ -18,6 +18,9 @@ end
 tex.in_text = function()
   return not tex.in_mathzone()
 end
+tex.in_cases = function()
+  return vim.fn["vimtex#env#is_inside"]("cases") ~= { 0, 0 }
+end
 
 local M = {
   -- EULER'S NUMBER SUPERSCRIPT SHORTCUT

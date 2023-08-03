@@ -4,3 +4,4 @@
 vim.opt.winbar = "%=%m %f"
 vim.opt.conceallevel = 0
 vim.opt.swapfile = false
+vim.opt.updatetime = 50

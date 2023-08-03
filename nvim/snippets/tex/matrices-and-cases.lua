@@ -111,11 +111,11 @@ local M = {
       [[
     \begin{cases}
     <>
-    .\end{cases}
+    \end{cases}
     ]],
       { d(1, generate_cases) }
     ),
-    { condition = tex.in_math, show_condition = tex.in_mathzone}
+    { condition = tex.in_math, show_condition = tex.in_mathzone }
   ),
 }
 

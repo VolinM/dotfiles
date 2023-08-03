@@ -22,21 +22,11 @@ local M = {
             return vim.api.nvim_win_get_config(win).relative == ""
           end,
         },
-      },
-      right = {
         {
           ft = "noice",
           size = { height = 0.4 },
           filter = function(buf, win)
             return vim.api.nvim_win_get_config(win).relative == ""
-          end,
-        },
-        {
-          ft = "lazyterm",
-          title = "LazyTerm",
-          size = { height = 0.4 },
-          filter = function(buf)
-            return not vim.b[buf].lazyterm_cmd
           end,
         },
         "Trouble",
@@ -47,6 +37,16 @@ local M = {
           -- don't open help files in edgy that we're editing
           filter = function(buf)
             return vim.bo[buf].buftype == "help"
+          end,
+        },
+      },
+      right = {
+        {
+          ft = "lazyterm",
+          title = "LazyTerm",
+          size = { height = 0.4 },
+          filter = function(buf)
+            return not vim.b[buf].lazyterm_cmd
           end,
         },
         { ft = "spectre_panel", size = { height = 0.4 } },

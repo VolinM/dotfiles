@@ -175,3 +175,87 @@
 \ExplSyntaxOn
 \msg_redirect_name:nnn { siunitx } { physics-pkg } { none }
 \ExplSyntaxOff
+
+\usepackage{pgfplots}
+
+\usepackage{xcolor}
+\definecolor{nord0}{RGB}{46, 52, 64}
+\definecolor{nord1}{RGB}{59, 66, 82}
+\definecolor{nord3}{RGB}{104, 112, 122}
+\definecolor{nord4}{RGB}{133, 153, 168}
+\definecolor{nord6}{RGB}{216, 222, 233}
+\definecolor{nord7}{RGB}{229, 233, 240}
+\definecolor{nord8}{RGB}{236, 239, 244}
+\definecolor{nord9}{RGB}{153, 171, 190}
+\definecolor{nord11}{RGB}{191, 97, 106}
+\definecolor{nord12}{RGB}{208, 135, 112}
+\definecolor{nord14}{RGB}{129, 161, 193}
+
+% Inverted Nord colors for Zathura
+\definecolor{nord0_zathura}{RGB}{236, 239, 244}
+\definecolor{nord1_zathura}{RGB}{229, 233, 240}
+\definecolor{nord3_zathura}{RGB}{171, 178, 191}
+\definecolor{nord4_zathura}{RGB}{142, 163, 186}
+\definecolor{nord6_zathura}{RGB}{46, 52, 64}
+\definecolor{nord7_zathura}{RGB}{59, 66, 82}
+\definecolor{nord8_zathura}{RGB}{59, 66, 82}
+\definecolor{nord9_zathura}{RGB}{153, 171, 190}
+\definecolor{nord11_zathura}{RGB}{191, 97, 106}
+\definecolor{nord12_zathura}{RGB}{208, 135, 112}
+\definecolor{nord14_zathura}{RGB}{133, 153, 168}
+% listings
+\usepackage{listings}
+\usepackage{FiraMono}
+
+% General Setting of listings
+\lstset{
+  aboveskip=1em,
+  breaklines=true,
+  abovecaptionskip=-6pt,
+  captionpos=b,
+  escapeinside={\%*}{*)},
+  frame=single,
+  numbers=left,
+  numbersep=15pt,
+  numberstyle=\tiny,
+}
+
+% 0. Basic Color Theme
+\lstdefinestyle{colored}{ %
+  basicstyle=\ttfamily,
+  backgroundcolor=\color{white},
+  commentstyle=\color{green}\itshape,
+  keywordstyle=\color{blue}\bfseries\itshape,
+  stringstyle=\color{red},
+}
+% 1. General Python Keywords List
+\lstdefinelanguage{PythonPlus}[]{Python}{
+  morekeywords=[1]{,as,assert,nonlocal,with,yield,self,True,False,None,} % Python builtin
+  morekeywords=[2]{,__init__,__add__,__mul__,__div__,__sub__,__call__,__getitem__,__setitem__,__eq__,__ne__,__nonzero__,__rmul__,__radd__,__repr__,__str__,__get__,__truediv__,__pow__,__name__,__future__,__all__,}, % magic methods
+  morekeywords=[3]{,object,type,isinstance,copy,deepcopy,zip,enumerate,reversed,list,set,len,dict,tuple,range,xrange,append,execfile,real,imag,reduce,str,repr,}, % common functions
+  morekeywords=[4]{,Exception,NameError,IndexError,SyntaxError,TypeError,ValueError,OverflowError,ZeroDivisionError,}, % errors
+  morekeywords=[5]{,ode,fsolve,sqrt,exp,sin,cos,arctan,arctan2,arccos,pi, array,norm,solve,dot,arange,isscalar,max,sum,flatten,shape,reshape,find,any,all,abs,plot,linspace,legend,quad,polyval,polyfit,hstack,concatenate,vstack,column_stack,empty,zeros,ones,rand,vander,grid,pcolor,eig,eigs,eigvals,svd,qr,tan,det,logspace,roll,min,mean,cumsum,cumprod,diff,vectorize,lstsq,cla,eye,xlabel,ylabel,squeeze,}, % numpy / math
+}
+% 2. New Language based on Python
+\lstdefinelanguage{PyBrIM}[]{PythonPlus}{
+  emph={d,E,a,Fc28,Fy,Fu,D,des,supplier,Material,Rectangle,PyElmt},
+}
+% 3. Extended theme
+\lstdefinestyle{colorEX}{
+  aboveskip=1em,
+  breaklines=true,
+  abovecaptionskip=-6pt,
+  captionpos=b,
+  escapeinside={\%*}{*)},
+  frame=single,
+  numbers=left,
+  numbersep=15pt,
+  numberstyle=\tiny,
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\color{nord9},
+  commentstyle=\color{nord12}, % Set comments to a more contrasting color
+  stringstyle=\color{nord14},
+  emphstyle=\color{nord11},
+  backgroundcolor=\color{white}, % Set background color to Nord's background
+}
+\lstnewenvironment{python}{\lstset{style=colorEx, language=PythonPlus}}{}

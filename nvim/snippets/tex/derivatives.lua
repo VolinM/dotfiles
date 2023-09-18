@@ -5,6 +5,7 @@ local t = ls.text_node
 local i = ls.insert_node
 local f = ls.function_node
 local d = ls.dynamic_node
+local c = ls.choice_node
 local fmta = require("luasnip.extras.fmt").fmta
 
 local helpers = require("utils.luasnip-helper")
@@ -21,12 +22,28 @@ end
 
 local M = {
   -- DIFFERENTIAL
-  s({ trig = "dff", priority = 2000, snippetType = "autosnippet" }, {
-    t("\\dd "),
-  }, { condition = tex.in_mathzone }),
-  s({ trig = ",dd", priority = 2000, snippetType = "autosnippet" }, {
-    t("\\,\\dd "),
-  }, { condition = tex.in_mathzone }),
+  s(
+    { trig = "dff", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    fmta("<> <>", {
+      c(1, {
+        fmta([[\dd{<>}]], { i(1) }),
+        fmta([[\dd[]{<>}]], { i(1) }),
+      }),
+      i(0),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  s(
+    { trig = "d,,", wordTrig = true, regTrig = true, snippetType = "autosnippet" },
+    fmta("<> <>", {
+      c(1, {
+        fmta([[\dd{<>}]], { i(1) }),
+        fmta([[\dd[3]{<>}]], { i(1) }),
+      }),
+      i(0),
+    }),
+    { condition = tex.in_mathzone }
+  ),
   -- TOTAL DERIVATIVE (only denominator)
   s(
     { trig = "([^%a])dV", wordTrig = false, regTrig = true, snippetType = "autosnippet" },

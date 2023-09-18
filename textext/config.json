@@ -1,0 +1,8 @@
+{
+  "gui": {
+    "confirm_close": true
+  },
+  "preamble": "/home/volinm/.config/inkscape/extensions/inkscapeMadeEasy/basicLatexPackages.tex",
+  "scale": 0.7,
+  "previous_tex_command": "pdflatex"
+}

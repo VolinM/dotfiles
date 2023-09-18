@@ -15,7 +15,7 @@ local M = {
       "<tab>",
       function()
         next_char = vim.fn.getline(vim.fn.line(".")):sub(vim.fn.col("."), vim.fn.col("."))
-        if next_char == ")" then
+        if next_char == ")" or next_char == "]" then
           return "<Right>"
         else
           return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"

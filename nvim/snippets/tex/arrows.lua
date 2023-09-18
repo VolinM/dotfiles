@@ -45,6 +45,9 @@ local M = {
   s({ trig = "iff", snippetType = "autosnippet" }, {
     t("\\iff"),
   }, { condition = tex.in_mathzone }),
+  s({ trig = "|-", snippetType = "autosnippet" }, {
+    t("\\to"),
+  }, { condition = tex.in_mathzone }),
 }
 
 return M

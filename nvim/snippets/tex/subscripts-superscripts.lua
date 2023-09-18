@@ -22,12 +22,12 @@ end
 local M = {
   -- SUPERSCRIPT
   s(
-    { trig = '([%w%)%]%}])""', wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    { trig = "([%a%)%]%}])%*%*", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
     fmta("<>^{<>}", {
       f(function(_, snip)
         return snip.captures[1]
       end),
-      d(1, get_visual),
+      i(1),
     }),
     { condition = tex.in_mathzone }
   ),
@@ -42,10 +42,21 @@ local M = {
     }),
     { condition = tex.in_mathzone }
   ),
+  -- SUBSCRIPT
+  s(
+    { trig = "([%w%)%]%}])([-])-", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    fmta("<>_{<>}", {
+      f(function(_, snip)
+        return snip.captures[1]
+      end),
+      i(1),
+    }),
+    { condition = tex.in_mathzone }
+  ),
   -- SUBSCRIPT AND SUPERSCRIPT
   s(
     { trig = "([%w%)%]%}])([.])-", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
-    fmta("<>^{<>}_{<>}", {
+    fmta("<>_{<>}^{<>}", {
       f(function(_, snip)
         return snip.captures[1]
       end),
@@ -132,7 +143,7 @@ local M = {
   ),
   -- CONJUGATE (STAR) SUPERSCRIPT SHORTCUT
   s(
-    { trig = "([%a%)%]%}])%*%*", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+    { trig = "([%a%)%]%}])°", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
     fmta("<>^{<>}", {
       f(function(_, snip)
         return snip.captures[1]

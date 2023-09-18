@@ -27,8 +27,8 @@ local M = {
         return snip.captures[1]
       end),
       c(1, {
-        fmta([[_{<>}{<>}]], { i(1), d(2, get_visual) }),
-        fmta([[_{<>}^{<>}{<>}]], { i(1), i(2), d(3, get_visual) }),
+        fmta([[_{<>}<>]], { i(1), d(2, get_visual) }),
+        fmta([[_{<>}^{<>}<>]], { i(1), i(2), d(3, get_visual) }),
       }),
       i(0),
     }),
@@ -41,8 +41,8 @@ local M = {
         return snip.captures[1]
       end),
       c(1, {
-        fmta([[_{<>}{<>}]], { i(1), d(2, get_visual) }),
-        fmta([[_{<>}^{<>}{<>}]], { i(1), i(2), d(3, get_visual) }),
+        fmta([[_{<>}<>]], { i(1), d(2, get_visual) }),
+        fmta([[_{<>}^{<>}<>]], { i(1), i(2), d(3, get_visual) }),
       }),
       i(0),
     }),
@@ -50,13 +50,12 @@ local M = {
   ),
   s(
     { trig = "([^%a])lim", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
-    fmta([[<>\lim_{<> \to <>}{<>}<>]], {
+    fmta([[<>\lim_{<> \to <>}<>]], {
       f(function(_, snip)
         return snip.captures[1]
       end),
       i(1),
       i(2),
-      i(3),
       i(0),
     }),
     { condition = tex.in_mathzone }

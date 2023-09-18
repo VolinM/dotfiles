@@ -63,13 +63,14 @@ local M = {
         )
         map(
           { "i" },
-          "<C-f>",
+          "<M-f>",
+          -- [[<esc>: echo "hello"<CR>]],
           [[<esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><cwd>:w<CR>]],
           { buffer = event.buf, remap = false }
         )
         map(
           { "n" },
-          "<C-f>",
+          "<M-f>",
           [[: silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>]],
           { buffer = event.buf, remap = false }
         )

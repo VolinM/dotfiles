@@ -148,5 +148,5 @@ alias pico='cd ~/PICOcode/PICOcode/UserCode/mvolin/'
 
 clear
 
-git -C ~/.config/ pull
+# git -C ~/.config/ pull
 

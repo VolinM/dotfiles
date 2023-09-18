@@ -28,9 +28,9 @@ local M = {
         return snip.captures[1]
       end),
       c(1, {
-        fmta([[{<>}]], { d(1, get_visual) }),
-        fmta([[_{<>}^{<>}{<>}]], { i(1), i(2), d(3, get_visual) }),
-        fmta([[_{-\infty}^{\infty}{<>}]], { d(1, get_visual) }),
+        fmta([[<>]], { d(1, get_visual) }),
+        fmta([[_{<>}^{<>} <>]], { i(1), i(2), d(3, get_visual) }),
+        fmta([[_{-\infty}^{+\infty} <>]], { d(1, get_visual) }),
       }),
       i(0),
     }),
@@ -44,9 +44,9 @@ local M = {
         return snip.captures[1]
       end),
       c(1, {
-        fmta([[{<>}]], { d(1, get_visual) }),
-        fmta([[_{<>}^{<>}{<>}]], { i(1), i(2), d(3, get_visual) }),
-        fmta([[_{-\infty}^{\infty}{<>}]], { d(1, get_visual) }),
+        fmta([[<>]], { d(1, get_visual) }),
+        fmta([[_{<>}^{<>} <>]], { i(1), i(2), d(3, get_visual) }),
+        fmta([[_{-\infty}^{+\infty} <>]], { d(1, get_visual) }),
       }),
       i(0),
     }),
@@ -60,9 +60,9 @@ local M = {
         return snip.captures[1]
       end),
       c(1, {
-        fmta([[{<>}]], { d(1, get_visual) }),
-        fmta([[_{<>}^{<>}{<>}]], { i(1), i(2), d(3, get_visual) }),
-        fmta([[_{-\infty}^{\infty}{<>}]], { d(1, get_visual) }),
+        fmta([[<>]], { d(1, get_visual) }),
+        fmta([[_{<>}^{<>} <>]], { i(1), i(2), d(3, get_visual) }),
+        fmta([[_{-\infty}^{+\infty} <>]], { d(1, get_visual) }),
       }),
       i(0),
     }),
@@ -76,8 +76,8 @@ local M = {
         return snip.captures[1]
       end),
       c(1, {
-        fmta([[{<>}]], { d(1, get_visual) }),
-        fmta([[_{<>}{<>}]], { i(1), d(2, get_visual) }),
+        fmta([[<>]], { d(1, get_visual) }),
+        fmta([[_{<>} <>]], { i(1), d(2, get_visual) }),
       }),
       i(0),
     }),
@@ -91,8 +91,8 @@ local M = {
         return snip.captures[1]
       end),
       c(1, {
-        fmta([[{<>}]], { d(1, get_visual) }),
-        fmta([[_{<>}{<>}]], { i(1), d(2, get_visual) }),
+        fmta([[<>]], { d(1, get_visual) }),
+        fmta([[_{<>} <>]], { i(1), d(2, get_visual) }),
       }),
       i(0),
     }),

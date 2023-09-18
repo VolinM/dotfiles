@@ -53,8 +53,8 @@ local M = {
         return snip.captures[1]
       end),
       c(1, {
-        fmta([[ln{<>}]], { d(1, get_visual) }),
-        fmta([[log_{<>}{<>}]], { i(1), d(2, get_visual) }),
+        fmta([[\ln{<>}]], { d(1, get_visual) }),
+        fmta([[\log_{<>}{<>}]], { i(1), d(2, get_visual) }),
       }),
       i(0),
     }),

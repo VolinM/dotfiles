@@ -50,32 +50,70 @@ local M = {
   -- SECTION
   s(
     { trig = "h0", snippetType = "autosnippet" },
-    fmta([[\chapter{<>}]], {
-      d(1, get_visual),
-    }),
+    fmta(
+      [[\chapter{<>}
+
+<>]],
+      {
+        d(1, get_visual),
+        i(0),
+      }
+    ),
     { condition = line_begin * tex.in_text }
   ),
   -- SECTION
   s(
     { trig = "h1", snippetType = "autosnippet" },
-    fmta([[\section{<>}]], {
-      d(1, get_visual),
-    }),
+    fmta(
+      [[\section{<>}
+
+<>]],
+      {
+        d(1, get_visual),
+        i(0),
+      }
+    ),
     { condition = line_begin * tex.in_text }
   ),
   -- SUBSECTION
   s(
     { trig = "h2", snippetType = "autosnippet" },
-    fmta([[\subsection{<>}]], {
-      d(1, get_visual),
-    })
+    fmta(
+      [[\subsection{<>}
+
+<>]],
+      {
+        d(1, get_visual),
+        i(0),
+      }
+    )
   ),
   -- SUBSUBSECTION
   s(
     { trig = "h3", snippetType = "autosnippet" },
-    fmta([[\subsubsection{<>}]], {
-      d(1, get_visual),
-    }),
+    fmta(
+      [[\subsubsection{<>}
+
+<>]],
+      {
+        d(1, get_visual),
+        i(0),
+      }
+    ),
+    { condition = line_begin * tex.in_text }
+  ),
+  -- Parahraph
+  s(
+    { trig = "h4", snippetType = "autosnippet" },
+    fmta(
+      [[\paragraph{<>}
+
+<>]],
+      {
+        d(1, get_visual),
+        i(0),
+      }
+    ),
     { condition = line_begin * tex.in_text }
   ),
   -- LABEL
@@ -88,6 +126,17 @@ local M = {
       {
         d(1, get_visual),
       }
+    )
+  ),
+  -- NOTAG
+  s(
+    { trig = "ntg", snippetType = "autosnippet" },
+    fmta(
+      [[
+      \notag\\
+
+      ]],
+      {}
     )
   ),
   -- HPHANTOM
@@ -121,19 +170,35 @@ local M = {
   ),
   s(
     { trig = "", snippetType = "autosnippet" },
-    fmta([[\textbf{<>} <>]], { d(1, get_visual), i(0) }),
+    fmta([[\textbf{<>}<>]], { d(1, get_visual), i(0) }),
     { condition = tex.in_text }
   ),
   s(
     { trig = "underl", snippetType = "autosnippet" },
-    fmta([[\underline{<>} <>]], { d(1, get_visual), i(0) }),
+    fmta([[\underline{<>}<>]], { d(1, get_visual), i(0) }),
     { condition = tex.in_text }
   ),
   s(
     { trig = "textit", snippetType = "autosnippet" },
-    fmta([[\textit{<>} <>]], { d(1, get_visual), i(0) }),
+    fmta([[\textit{<>}<>]], { d(1, get_visual), i(0) }),
     { condition = tex.in_text }
   ),
+  s(
+    { trig = "msc", snippetType = "autosnippet" },
+    fmta([[\mathscr{<>}<>]], { d(1, get_visual), i(0) }),
+    { condition = tex.in_mathzone }
+  ),
+  s(
+    { trig = "mbb", snippetType = "autosnippet" },
+    fmta([[\mathbb{<>}<>]], { d(1, get_visual), i(0) }),
+    { condition = tex.in_mathzone }
+  ),
+  s(
+    { trig = "mcl", snippetType = "autosnippet" },
+    fmta([[\mathcal{<>}<>]], { d(1, get_visual), i(0) }),
+    { condition = tex.in_mathzone }
+  ),
+  s({ trig = "ccc", snippetType = "autosnippet" }, fmta([[\const]], {}), { condition = tex.in_mathzone }),
 }
 
 return M

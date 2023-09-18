@@ -22,7 +22,7 @@ end
 local M = {
   -- FRACTION
   s(
-    { trig = "([^%a])ff", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    { trig = "([^%w])ff", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
     fmta("<>\\frac{<>}{<>}", {
       f(function(_, snip)
         return snip.captures[1]
@@ -33,19 +33,41 @@ local M = {
     { condition = tex.in_mathzone }
   ),
   s(
-    { trig = "([^%a])//", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
-    fmta("<>\\frac{<>}{<>}", {
-      f(function(_, snip)
-        return snip.captures[1]
-      end),
-      d(1, get_visual),
-      i(2),
-    }),
+    { trig = "(%S+)//", regTrig = true, snippetType = "autosnippet" },
+    fmta(
+      [[
+\frac{<>}{<>}<>
+]],
+      {
+        f(function(_, snip)
+          return snip.captures[1]
+        end),
+        i(1),
+        i(0),
+      }
+    ),
+    { condition = tex.in_mathzone }
+  ),
+  s(
+    { trig = "(%S+)€", regTrig = true, snippetType = "autosnippet" },
+    fmta(
+      [[
+\eval{<>}_{<>}^{<>}<>
+]],
+      {
+        f(function(_, snip)
+          return snip.captures[1]
+        end),
+        i(1),
+        i(2),
+        i(0),
+      }
+    ),
     { condition = tex.in_mathzone }
   ),
   -- SQUARE ROOT
   s(
-    { trig = "([^%a])rtt", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    { trig = "([^%a])srr", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
     fmta("<><><>", {
       f(function(_, snip)
         return snip.captures[1]
@@ -58,9 +80,33 @@ local M = {
     }),
     { condition = tex.in_mathzone }
   ),
+  -- SQUARE ROOT
+  s(
+    { trig = "([^%a])set", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    fmta("<><><>", {
+      f(function(_, snip)
+        return snip.captures[1]
+      end),
+      c(1, {
+        fmta([[\{<>\}]], { d(1, get_visual) }),
+      }),
+      i(0),
+    }),
+    { condition = tex.in_mathzone }
+  ),
+  s(
+    { trig = "([^%w])epp", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+    fmta("<>\\exv{<>}", {
+      f(function(_, snip)
+        return snip.captures[1]
+      end),
+      d(1, get_visual),
+    }),
+    { condition = tex.in_mathzone }
+  ),
   -- HAT
   s(
-    { trig = "(%a?)hat", regTrig = true, snippetType = "autosnippet" },
+    { trig = "(%a?)hat", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
     fmta(
       [[
     \hat{<>}<>

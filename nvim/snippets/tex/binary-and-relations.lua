@@ -55,10 +55,10 @@ local M = {
     t("\\Box"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "IN", snippetType = "autosnippet", wordTrig = false }, {
-    t("\\cap"),
+    t("\\bigcap"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "UU", snippetType = "autosnippet", wordTrig = false }, {
-    t("\\cup"),
+    t("\\bigcup"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "==", snippetType = "autosnippet", wordTrig = false }, {
     t("\\equiv"),
@@ -126,7 +126,7 @@ local M = {
   s({ trig = "!in", snippetType = "autosnippet", wordTrig = false }, {
     t("\\notin"),
   }, { condition = tex.in_mathzone }),
-  s({ trig = "€", snippetType = "autosnippet", wordTrig = false }, {
+  s({ trig = "inn", snippetType = "autosnippet", wordTrig = false }, {
     t("\\in"),
   }, { condition = tex.in_mathzone }),
   s({ trig = "ni", snippetType = "autosnippet", wordTrig = false }, {

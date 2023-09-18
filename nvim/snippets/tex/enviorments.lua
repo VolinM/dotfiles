@@ -20,6 +20,15 @@ end
 tex.in_text = function()
   return not tex.in_mathzone()
 end
+tex.in_cases = function()
+  return vim.fn["vimtex#env#is_inside"]("cases") ~= { 0, 0 }
+end
+tex.in_align = function()
+  return vim.fn["vimtex#env#is_inside"]("align") ~= { 0, 0 }
+end
+tex.in_matrix = function()
+  return vim.fn["vimtex#env#is_inside"]("\\wmatrix") ~= { 0, 0 }
+end
 
 local line_begin = require("luasnip.extras.expand_conditions").line_begin
 
@@ -121,6 +130,16 @@ local M = {
             [[
         \begin{equation}[box=\widebox]
             <>
+        \end{equation}
+        ]],
+            { i(1) }
+          ),
+          fmta(
+            [[
+        \begin{equation}
+          \boxed{
+          <>
+          }
         \end{equation}
         ]],
             { i(1) }
@@ -258,7 +277,7 @@ local M = {
     { condition = line_begin * tex.in_text }
   ),
   s(
-    { trig = "([^%l])mm", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+    { trig = "mm", regTrig = true, wordTrig = true, snippetType = "autosnippet" },
     fmta("<>$<>$", {
       f(function(_, snip)
         return snip.captures[1]
@@ -312,8 +331,13 @@ local M = {
   ),
   s(
     { trig = "([.])-", regTrig = true, snippetType = "autosnippet" },
-    fmta("\\item <>", { i(0) }),
+    fmta("\\item<>", { i(0) }),
     { condition = line_begin * tex.in_text }
+  ),
+  s(
+    { trig = "<C-Space>", regTrig = true, snippetType = "autosnippet" },
+    fmta("<>& ", { t(" ") }),
+    { condition = tex.in_align }
   ),
   s(
     { trig = "lbb", regTrig = true, snippetType = "autosnippet" },
@@ -743,7 +767,7 @@ local M = {
     fmta(
       [[
 
-        \begin{example}
+        \begin{example}[<>]
            <>
         \end{example}
 
@@ -752,6 +776,7 @@ local M = {
       ]],
       {
         i(1),
+        i(2),
         i(0),
       }
     ),

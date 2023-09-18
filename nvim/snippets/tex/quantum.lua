@@ -4,6 +4,7 @@ local s = ls.snippet
 local t = ls.text_node
 local i = ls.insert_node
 local d = ls.dynamic_node
+local f = ls.function_node
 local fmta = require("luasnip.extras.fmt").fmta
 
 local helpers = require("utils.luasnip-helper")
@@ -23,7 +24,7 @@ local M = {
     t("\\hbar"),
   }, { condition = tex.in_mathzone }),
   s(
-    { trig = "««", regTrig = true, snippetType = "autosnippet" },
+    { trig = "«", regTrig = true, snippetType = "autosnippet", wordTrig = false },
     fmta(
       [[
     \bra{<>}<>
@@ -33,10 +34,25 @@ local M = {
         i(0),
       }
     ),
-    { condition = tex.in_mathzone}
+    { condition = tex.in_mathzone }
   ),
+  -- s(
+  --   { trig = "\\bra{(.*)}»", regTrig = true, snippetType = "autosnippet", wordTrig = false, pre_expand = true },
+  --   fmta(
+  --     [[
+  -- \braket{<>}{<>}
+  -- ]],
+  --     {
+  --       f(function(_, snip)
+  --         return snip.captures[1]
+  --       end),
+  --       i(2),
+  --     }
+  --   ),
+  --   { condition = tex.in_mathzone }
+  -- ),
   s(
-    { trig = "»»", regTrig = true, snippetType = "autosnippet" },
+    { trig = "»", regTrig = true, snippetType = "autosnippet", wordTrig = false },
     fmta(
       [[
     \ket{<>}<>
@@ -46,21 +62,7 @@ local M = {
         i(0),
       }
     ),
-    { condition = tex.in_mathzone}
-  ),
-  s(
-    { trig = "«»", regTrig = true, snippetType = "autosnippet" },
-    fmta(
-      [[
-    \braket{<>}{<>}<>
-    ]],
-      {
-        d(1, get_visual),
-        i(2),
-        i(0),
-      }
-    ),
-    { condition = tex.in_mathzone}
+    { condition = tex.in_mathzone }
   ),
 }
 
